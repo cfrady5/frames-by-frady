@@ -2,7 +2,6 @@ import Link from "next/link";
 import { BarChart3, CreditCard, ExternalLink, FileText, MessageSquare, ArrowRight } from "lucide-react";
 import DashboardStatCard from "@/components/DashboardStatCard";
 
-// Mock data - will be replaced with Supabase queries in Phase 5+
 const mockClient = {
   name: "Acme Roofing Co.",
   websiteUrl: "https://acmeroofing.com",
@@ -18,7 +17,7 @@ const mockStats = [
   { icon: CreditCard, label: "Plan", value: "Growth", subtext: "Next bill: Jun 15, 2026" },
 ];
 
-const mockEditRequests = [
+const mockRequests = [
   { id: 1, title: "Update homepage headline", status: "In Progress", created: "May 28, 2026" },
   { id: 2, title: "Add new service to services page", status: "New", created: "May 30, 2026" },
 ];
@@ -29,94 +28,61 @@ export default function DashboardPage() {
       {/* Welcome */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h1 className="font-heading font-bold text-2xl text-[#F8FAFC]">
-            Welcome back, {mockClient.name}
-          </h1>
+          <h1 className="font-heading font-bold text-2xl text-[#0A0F1C]">Welcome back, {mockClient.name}</h1>
           <div className="flex items-center gap-2 mt-1">
-            <a
-              href={mockClient.websiteUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-1.5 text-sm text-[#2F80FF] hover:text-[#44D9FF] transition-colors"
-            >
+            <a href={mockClient.websiteUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-sm text-[#1A73FF] hover:text-[#1557CC] transition-colors">
               {mockClient.websiteUrl} <ExternalLink className="w-3 h-3" />
             </a>
-            <span className="text-[#94A3B8] text-xs">|</span>
-            <span className="text-xs px-2 py-0.5 rounded-full bg-[rgba(47,128,255,0.12)] text-[#2F80FF] font-semibold">
-              {mockClient.plan}
-            </span>
+            <span className="text-[#E5E7EB]">|</span>
+            <span className="text-xs px-2 py-0.5 rounded-full bg-[#EFF6FF] text-[#1A73FF] font-semibold">{mockClient.plan}</span>
           </div>
         </div>
-        <Link
-          href="/dashboard/edit-requests"
-          className="inline-flex items-center gap-2 px-4 py-2.5 text-sm font-semibold text-white rounded-xl gradient-blue glow-blue-sm hover:opacity-90 transition-opacity w-fit"
-        >
-          New Edit Request
-        </Link>
+        <Link href="/dashboard/edit-requests" className="btn-primary text-sm w-fit">New Edit Request</Link>
       </div>
 
       {/* Stats */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-        {mockStats.map((stat) => (
-          <DashboardStatCard key={stat.label} {...stat} />
-        ))}
+        {mockStats.map((s) => <DashboardStatCard key={s.label} {...s} />)}
       </div>
 
       {/* Cards row */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        {/* Analytics summary */}
-        <div className="glass-card rounded-xl p-6 flex flex-col gap-4 lg:col-span-1">
+        {/* Traffic chart */}
+        <div className="agency-card rounded-lg p-6 flex flex-col gap-4 lg:col-span-1">
           <div className="flex items-center justify-between">
-            <h2 className="font-heading font-semibold text-[#F8FAFC] text-sm">Traffic (last 7 days)</h2>
-            <Link href="/dashboard/analytics" className="text-xs text-[#2F80FF] hover:text-[#44D9FF] transition-colors flex items-center gap-1">
+            <h2 className="font-heading font-semibold text-[#0A0F1C] text-sm">Traffic — last 7 days</h2>
+            <Link href="/dashboard/analytics" className="text-xs text-[#1A73FF] hover:text-[#1557CC] transition-colors flex items-center gap-1">
               View all <ArrowRight className="w-3 h-3" />
             </Link>
           </div>
           <div className="flex items-end gap-1 h-20">
             {[40, 65, 50, 80, 70, 90, 75].map((h, i) => (
-              <div
-                key={i}
-                className="flex-1 rounded-sm"
-                style={{
-                  height: `${h}%`,
-                  background: `rgba(47, 128, 255, ${0.25 + (h / 100) * 0.5})`,
-                }}
-              />
+              <div key={i} className="flex-1 rounded-sm bg-[#1A73FF]" style={{ height: `${h}%`, opacity: 0.35 + (h / 130) }} />
             ))}
           </div>
-          <div className="flex justify-between text-xs text-[#94A3B8]">
-            {["M", "T", "W", "T", "F", "S", "S"].map((d) => (
-              <span key={d} className="flex-1 text-center">{d}</span>
-            ))}
+          <div className="flex justify-between text-[10px] text-[#9CA3AF]">
+            {["M","T","W","T","F","S","S"].map((d,i) => <span key={i}>{d}</span>)}
           </div>
         </div>
 
-        {/* Edit requests */}
-        <div className="glass-card rounded-xl p-6 flex flex-col gap-4 lg:col-span-1">
+        {/* Requests */}
+        <div className="agency-card rounded-lg p-6 flex flex-col gap-4 lg:col-span-1">
           <div className="flex items-center justify-between">
-            <h2 className="font-heading font-semibold text-[#F8FAFC] text-sm">Recent Edit Requests</h2>
-            <Link href="/dashboard/edit-requests" className="text-xs text-[#2F80FF] hover:text-[#44D9FF] transition-colors flex items-center gap-1">
+            <h2 className="font-heading font-semibold text-[#0A0F1C] text-sm">Recent Requests</h2>
+            <Link href="/dashboard/edit-requests" className="text-xs text-[#1A73FF] hover:text-[#1557CC] transition-colors flex items-center gap-1">
               View all <ArrowRight className="w-3 h-3" />
             </Link>
           </div>
           <div className="flex flex-col gap-3">
-            {mockEditRequests.map((req) => (
-              <div key={req.id} className="flex items-start justify-between gap-2">
+            {mockRequests.map((r) => (
+              <div key={r.id} className="flex items-start justify-between gap-2">
                 <div>
-                  <p className="text-sm text-[#F8FAFC] leading-snug">{req.title}</p>
-                  <p className="text-xs text-[#94A3B8] mt-0.5">{req.created}</p>
+                  <p className="text-sm text-[#0A0F1C] leading-snug">{r.title}</p>
+                  <p className="text-xs text-[#9CA3AF] mt-0.5">{r.created}</p>
                 </div>
-                <span
-                  className={`text-xs font-semibold px-2 py-0.5 rounded-full flex-shrink-0 ${
-                    req.status === "New"
-                      ? "bg-[rgba(68,217,255,0.1)] text-[#44D9FF]"
-                      : req.status === "In Progress"
-                      ? "bg-[rgba(47,128,255,0.12)] text-[#2F80FF]"
-                      : "bg-[rgba(148,163,184,0.1)] text-[#94A3B8]"
-                  }`}
-                >
-                  {req.status}
-                </span>
+                <span className={`text-xs font-semibold px-2 py-0.5 rounded flex-shrink-0 ${
+                  r.status === "New" ? "bg-[#EFF6FF] text-[#1A73FF]" : "bg-[#F5F5F5] text-[#6B7280]"
+                }`}>{r.status}</span>
               </div>
             ))}
           </div>
@@ -124,34 +90,28 @@ export default function DashboardPage() {
 
         {/* Billing + report */}
         <div className="flex flex-col gap-4 lg:col-span-1">
-          <div className="glass-card rounded-xl p-5 flex flex-col gap-3">
+          <div className="agency-card rounded-lg p-5 flex flex-col gap-3">
             <div className="flex items-center justify-between">
-              <h2 className="font-heading font-semibold text-[#F8FAFC] text-sm">Billing</h2>
-              <Link href="/dashboard/billing" className="text-xs text-[#2F80FF] hover:text-[#44D9FF] transition-colors flex items-center gap-1">
-                Manage <ArrowRight className="w-3 h-3" />
-              </Link>
+              <h2 className="font-heading font-semibold text-[#0A0F1C] text-sm">Billing</h2>
+              <Link href="/dashboard/billing" className="text-xs text-[#1A73FF] hover:text-[#1557CC] transition-colors flex items-center gap-1">Manage <ArrowRight className="w-3 h-3" /></Link>
             </div>
             <div className="flex items-center justify-between text-sm">
-              <span className="text-[#94A3B8]">Status</span>
-              <span className="text-[#44D9FF] font-semibold">{mockClient.billingStatus}</span>
+              <span className="text-[#6B7280]">Status</span>
+              <span className="text-[#1A73FF] font-semibold">{mockClient.billingStatus}</span>
             </div>
             <div className="flex items-center justify-between text-sm">
-              <span className="text-[#94A3B8]">Next bill</span>
-              <span className="text-[#F8FAFC]">{mockClient.nextBillingDate}</span>
+              <span className="text-[#6B7280]">Next bill</span>
+              <span className="text-[#0A0F1C]">{mockClient.nextBillingDate}</span>
             </div>
           </div>
-          <div className="glass-card rounded-xl p-5 flex flex-col gap-3">
+          <div className="agency-card rounded-lg p-5 flex flex-col gap-3">
             <div className="flex items-center justify-between">
-              <h2 className="font-heading font-semibold text-[#F8FAFC] text-sm">Latest Report</h2>
-              <Link href="/dashboard/reports" className="text-xs text-[#2F80FF] hover:text-[#44D9FF] transition-colors flex items-center gap-1">
-                View all <ArrowRight className="w-3 h-3" />
-              </Link>
+              <h2 className="font-heading font-semibold text-[#0A0F1C] text-sm">Latest Report</h2>
+              <Link href="/dashboard/reports" className="text-xs text-[#1A73FF] hover:text-[#1557CC] transition-colors flex items-center gap-1">View all <ArrowRight className="w-3 h-3" /></Link>
             </div>
-            <div>
-              <p className="text-sm text-[#F8FAFC]">May 2026 Performance Report</p>
-              <p className="text-xs text-[#94A3B8] mt-0.5">Traffic up 12%. 3 SEO improvements applied.</p>
-            </div>
-            <Link href="/dashboard/reports" className="text-xs text-[#2F80FF] hover:text-[#44D9FF] transition-colors flex items-center gap-1 w-fit">
+            <p className="text-sm text-[#0A0F1C]">May 2026 Performance Report</p>
+            <p className="text-xs text-[#6B7280]">Traffic up 12%. 3 SEO improvements applied.</p>
+            <Link href="/dashboard/reports" className="text-xs text-[#1A73FF] hover:text-[#1557CC] transition-colors flex items-center gap-1 w-fit">
               <FileText className="w-3 h-3" /> View report
             </Link>
           </div>

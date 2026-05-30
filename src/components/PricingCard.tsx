@@ -24,10 +24,10 @@ export default function PricingCard({
 
   return (
     <div
-      className={`relative rounded-lg p-8 flex flex-col gap-6 transition-all ${
+      className={`relative rounded-lg p-8 flex flex-col gap-6 transition-all card-hover ${
         highlighted
-          ? "border border-[#1A73FF] bg-[#161E2E] glow-blue"
-          : "glass-card hover:border-[rgba(26,115,255,0.25)]"
+          ? "bg-[#0A0F1C] text-white border border-[#0A0F1C]"
+          : "agency-card"
       }`}
     >
       {badge && (
@@ -39,19 +39,28 @@ export default function PricingCard({
       )}
 
       <div className="flex flex-col gap-2">
-        <p className="text-xs font-semibold uppercase tracking-widest text-[#1A73FF]">{name}</p>
+        <p className={`text-xs font-semibold uppercase tracking-widest ${highlighted ? "text-[#93C5FD]" : "text-[#1A73FF]"}`}>
+          {name}
+        </p>
         <div className="flex items-baseline gap-1">
-          <span className="font-heading font-bold text-4xl text-[#F5F5F5]">{price}</span>
-          <span className="text-[#9CA3AF] text-sm">/month</span>
+          <span className={`font-heading font-bold text-4xl ${highlighted ? "text-white" : "text-[#0A0F1C]"}`}>
+            {price}
+          </span>
+          <span className={`text-sm ${highlighted ? "text-[#9CA3AF]" : "text-[#6B7280]"}`}>/month</span>
         </div>
-        <p className="text-sm text-[#9CA3AF] leading-relaxed">{description}</p>
+        <p className={`text-sm leading-relaxed ${highlighted ? "text-[#9CA3AF]" : "text-[#6B7280]"}`}>
+          {description}
+        </p>
       </div>
 
       <ul className="flex flex-col gap-3 flex-1">
         {features.map((feature) => (
           <li key={feature} className="flex items-start gap-3">
-            <Check className="w-4 h-4 text-[#1A73FF] mt-0.5 flex-shrink-0" strokeWidth={2.5} />
-            <span className="text-sm text-[#9CA3AF]">{feature}</span>
+            <Check
+              className={`w-4 h-4 mt-0.5 flex-shrink-0 ${highlighted ? "text-[#93C5FD]" : "text-[#1A73FF]"}`}
+              strokeWidth={2.5}
+            />
+            <span className={`text-sm ${highlighted ? "text-[#D1D5DB]" : "text-[#6B7280]"}`}>{feature}</span>
           </li>
         ))}
       </ul>
@@ -61,7 +70,7 @@ export default function PricingCard({
         className={`w-full py-3 rounded-md text-sm font-semibold text-center transition-all ${
           highlighted
             ? "bg-[#1A73FF] text-white hover:bg-[#1557CC]"
-            : "border border-[rgba(229,231,235,0.15)] text-[#F5F5F5] hover:border-[rgba(26,115,255,0.4)] hover:bg-[rgba(26,115,255,0.06)]"
+            : "border border-[#E5E7EB] text-[#0A0F1C] hover:border-[#D1D5DB] hover:bg-[#F9FAFB]"
         }`}
       >
         Get Started

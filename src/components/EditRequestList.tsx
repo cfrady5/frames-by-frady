@@ -12,7 +12,7 @@ const statusColors: Record<EditRequest["status"], string> = {
   "New": "bg-[rgba(26,115,255,0.12)] text-[#1A73FF]",
   "In Progress": "bg-[rgba(26,115,255,0.2)] text-[#60A5FA]",
   "Waiting on Client": "bg-[rgba(234,179,8,0.12)] text-yellow-400",
-  "Completed": "bg-[rgba(34,197,94,0.12)] text-green-400",
+  "Completed": "bg-[rgba(26,115,255,0.08)] text-[#0D47A1]",
 };
 
 const priorityColors: Record<string, string> = {

@@ -1,37 +1,37 @@
 import Link from "next/link";
-import { ArrowRight, Zap, Code2, Globe, BarChart3, Search, FileText, RefreshCw, LayoutDashboard } from "lucide-react";
+import { ArrowRight, MonitorSmartphone, Code2, Globe, BarChart3, Search, FileText, RefreshCw, LayoutDashboard } from "lucide-react";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import SectionHeading from "@/components/SectionHeading";
 
 const services = [
   {
-    icon: Zap,
+    icon: MonitorSmartphone,
     title: "Website Design",
-    description: "We design clean, modern websites built around your brand. Every layout is built to feel intentional, premium, and easy to navigate.",
+    description: "We design clean, modern websites built around your brand. Every layout is intentional, premium, and easy to navigate.",
     forWho: "Businesses that want a site that stands out and actually represents who they are.",
     included: ["Custom layout and visual design", "Brand color and typography integration", "Mobile-first responsive design", "Design review and refinement rounds", "Component-based design system"],
   },
   {
     icon: Code2,
     title: "Website Development",
-    description: "We build fast, reliable websites using modern web frameworks. Clean code, no bloat, and built to scale with your business.",
+    description: "We build fast, reliable websites using modern frameworks. Clean code, no bloat, and built to scale.",
     forWho: "Anyone who wants a site that loads fast, works everywhere, and holds up over time.",
     included: ["Modern framework development (Next.js)", "Responsive layout implementation", "Contact forms and integrations", "Performance optimization", "Cross-browser compatibility"],
   },
   {
     icon: Globe,
     title: "Hosting & Maintenance",
-    description: "Your site stays live, updated, and secure. We handle the infrastructure so you never have to worry about uptime or technical breakdowns.",
+    description: "Your site stays live, updated, and secure. We handle the infrastructure so you never worry about uptime.",
     forWho: "Any business that does not want to think about servers, SSL, or software updates.",
-    included: ["Managed hosting included in every plan", "SSL certificate", "Uptime monitoring", "Regular software and dependency updates", "Daily or weekly backups"],
+    included: ["Managed hosting included in every plan", "SSL certificate", "Uptime monitoring", "Regular software updates", "Backups"],
   },
   {
     icon: BarChart3,
     title: "Analytics & Reporting",
-    description: "Know exactly who is visiting your site, what they are looking at, and where they came from. No guessing, no black boxes.",
+    description: "Know exactly who is visiting your site, what they look at, and where they came from.",
     forWho: "Businesses that want to make informed decisions based on real traffic data.",
-    included: ["Analytics integration and setup", "Monthly performance reports", "Traffic sources and referrers", "Device and location breakdowns", "Top pages and conversion tracking"],
+    included: ["Analytics integration and setup", "Monthly performance reports", "Traffic sources and referrers", "Device and location breakdowns", "Top pages tracking"],
   },
   {
     icon: Search,
@@ -43,23 +43,23 @@ const services = [
   {
     icon: FileText,
     title: "Landing Pages",
-    description: "Focused, conversion-optimized pages for specific campaigns, services, or offers. Built fast and designed to get results.",
+    description: "Focused, conversion-optimized pages for specific campaigns, services, or offers.",
     forWho: "Businesses running ads, promotions, or services that need a dedicated destination.",
-    included: ["Custom landing page design and build", "Clear CTA layout and structure", "Mobile optimization", "Form integration", "Basic A/B testing setup (Growth and above)"],
+    included: ["Custom landing page design and build", "Clear CTA layout", "Mobile optimization", "Form integration", "Basic A/B testing setup (Growth and above)"],
   },
   {
     icon: RefreshCw,
-    title: "Monthly Website Management",
-    description: "Your site should evolve with your business. We handle edits, updates, and ongoing improvements so it never goes stale.",
-    forWho: "Any business that wants their site to stay current without having to manage it themselves.",
+    title: "Monthly Management",
+    description: "We handle edits, updates, and ongoing improvements so your site never goes stale.",
+    forWho: "Any business that wants their site to stay current without managing it themselves.",
     included: ["Monthly edit request handling", "Content updates and additions", "Image and media swaps", "Ongoing performance reviews", "Priority turnaround on Growth and Premium"],
   },
   {
     icon: LayoutDashboard,
     title: "Client Portal Access",
-    description: "Every managed website can include access to a secure client dashboard. View your analytics, check billing, submit edit requests, and download reports.",
-    forWho: "Clients who want visibility and control without needing to get into the technical details.",
-    included: ["Secure login and authentication", "Analytics overview", "Edit request submission and tracking", "Monthly report access", "Billing and plan management"],
+    description: "A secure client dashboard. View analytics, check billing, submit edit requests, and download reports.",
+    forWho: "Clients who want visibility and control without the technical details.",
+    included: ["Secure login and authentication", "Analytics overview", "Edit request tracking", "Monthly report access", "Billing and plan management"],
   },
 ];
 
@@ -69,56 +69,49 @@ export default function ServicesPage() {
       <SiteHeader />
       <main className="flex-1 pt-16">
         {/* Header */}
-        <section className="relative py-24 overflow-hidden">
-          <div className="absolute inset-0 grid-bg opacity-50" />
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-[300px] bg-[rgba(47,128,255,0.06)] blur-[80px] rounded-full pointer-events-none" />
-          <div className="relative max-w-7xl mx-auto px-6 lg:px-8 flex flex-col gap-6 max-w-3xl">
+        <section className="py-20 border-b border-[#E5E7EB] bg-white">
+          <div className="max-w-7xl mx-auto px-6 lg:px-8 flex flex-col gap-6 max-w-3xl">
             <SectionHeading
               label="Services"
               title="Everything your website needs, in one place."
-              description="Frames by Frady offers a full suite of website services under one managed subscription. Design, development, hosting, analytics, and ongoing management included."
+              description="Design, development, hosting, analytics, and ongoing management under one managed subscription."
             />
-            <Link
-              href="/contact"
-              className="inline-flex items-center gap-2 px-6 py-3 text-sm font-semibold text-white rounded-xl gradient-blue glow-blue-sm hover:opacity-90 transition-opacity w-fit"
-            >
-              Start Your Website <ArrowRight className="w-4 h-4" />
+            <Link href="/contact" className="btn-primary w-fit">
+              Start a Project <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
         </section>
 
-        {/* Services detail */}
-        <section className="pb-24">
-          <div className="max-w-7xl mx-auto px-6 lg:px-8 flex flex-col gap-1">
+        {/* Services */}
+        <section className="py-4 bg-[#FAFAFA]">
+          <div className="max-w-7xl mx-auto px-6 lg:px-8">
             {services.map((service, i) => {
               const Icon = service.icon;
               return (
                 <div
                   key={service.title}
-                  className={`py-16 border-b border-[rgba(148,163,184,0.1)] grid grid-cols-1 lg:grid-cols-2 gap-12 items-start ${
-                    i % 2 === 1 ? "lg:grid-flow-dense" : ""
-                  }`}
+                  className={`py-16 border-b border-[#E5E7EB] grid grid-cols-1 lg:grid-cols-2 gap-12 items-start ${i % 2 === 1 ? "lg:grid-flow-dense" : ""}`}
                 >
                   <div className={`flex flex-col gap-5 ${i % 2 === 1 ? "lg:col-start-2" : ""}`}>
                     <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-lg bg-[rgba(47,128,255,0.12)] flex items-center justify-center">
-                        <Icon className="w-5 h-5 text-[#2F80FF]" strokeWidth={1.75} />
+                      <div className="w-10 h-10 rounded-md bg-[#EFF6FF] flex items-center justify-center">
+                        <Icon className="w-5 h-5 text-[#1A73FF]" strokeWidth={1.75} />
                       </div>
-                      <h2 className="font-heading font-bold text-2xl text-[#F8FAFC]">{service.title}</h2>
+                      <h2 className="font-heading font-bold text-2xl text-[#0A0F1C]">{service.title}</h2>
                     </div>
-                    <p className="text-[#94A3B8] leading-relaxed">{service.description}</p>
-                    <div className="glass-card rounded-xl p-4">
-                      <p className="text-xs font-semibold uppercase tracking-widest text-[#2F80FF] mb-2">Who it is for</p>
-                      <p className="text-sm text-[#94A3B8]">{service.forWho}</p>
+                    <p className="text-[#6B7280] leading-relaxed">{service.description}</p>
+                    <div className="agency-card rounded-lg p-4">
+                      <p className="text-xs font-semibold uppercase tracking-widest text-[#1A73FF] mb-2">Who it is for</p>
+                      <p className="text-sm text-[#6B7280]">{service.forWho}</p>
                     </div>
                   </div>
-                  <div className={`glass-card rounded-xl p-6 ${i % 2 === 1 ? "lg:col-start-1 lg:row-start-1" : ""}`}>
-                    <p className="text-xs font-semibold uppercase tracking-widest text-[#94A3B8] mb-4">What is included</p>
+                  <div className={`agency-card rounded-lg p-6 ${i % 2 === 1 ? "lg:col-start-1 lg:row-start-1" : ""}`}>
+                    <p className="text-xs font-semibold uppercase tracking-widest text-[#9CA3AF] mb-4">What is included</p>
                     <ul className="flex flex-col gap-3">
                       {service.included.map((item) => (
                         <li key={item} className="flex items-start gap-3">
-                          <div className="w-1.5 h-1.5 rounded-full bg-[#2F80FF] mt-2 flex-shrink-0" />
-                          <span className="text-sm text-[#94A3B8]">{item}</span>
+                          <div className="w-1.5 h-1.5 rounded-full bg-[#1A73FF] mt-1.5 flex-shrink-0" />
+                          <span className="text-sm text-[#6B7280]">{item}</span>
                         </li>
                       ))}
                     </ul>
@@ -130,20 +123,12 @@ export default function ServicesPage() {
         </section>
 
         {/* CTA */}
-        <section className="py-24 bg-[#07111F]">
+        <section className="py-24 border-t border-[#E5E7EB] bg-white">
           <div className="max-w-3xl mx-auto px-6 lg:px-8 flex flex-col items-center text-center gap-8">
-            <SectionHeading
-              title="Ready to get started?"
-              description="Pick a plan and we will take care of the rest."
-              centered
-            />
+            <SectionHeading title="Ready to get started?" description="Pick a plan and we will take care of the rest." centered />
             <div className="flex flex-col sm:flex-row gap-3">
-              <Link href="/contact" className="px-6 py-3 text-sm font-semibold text-white rounded-xl gradient-blue glow-blue-sm hover:opacity-90 transition-opacity">
-                Start Your Website
-              </Link>
-              <Link href="/pricing" className="px-6 py-3 text-sm font-semibold text-[#F8FAFC] rounded-xl border border-[rgba(148,163,184,0.2)] hover:border-[rgba(47,128,255,0.4)] transition-all">
-                View Pricing
-              </Link>
+              <Link href="/contact" className="btn-primary">Start a Project</Link>
+              <Link href="/pricing" className="btn-ghost">View Pricing</Link>
             </div>
           </div>
         </section>

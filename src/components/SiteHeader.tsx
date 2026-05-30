@@ -5,112 +5,89 @@ import { useState } from "react";
 import { Menu, X } from "lucide-react";
 
 const navLinks = [
-  { href: "/", label: "Home" },
+  { href: "/portfolio", label: "Work" },
   { href: "/services", label: "Services" },
   { href: "/pricing", label: "Pricing" },
-  { href: "/portfolio", label: "Portfolio" },
+  { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
 ];
 
-function FramesLogo({ size = "default" }: { size?: "default" | "sm" }) {
-  const isSmall = size === "sm";
+export function FramesLogo() {
   return (
-    <div className={`flex flex-col leading-none ${isSmall ? "gap-0" : "gap-0"}`}>
-      <div className={`flex items-center gap-0 bracket-logo text-[#F5F5F5] ${isSmall ? "text-sm" : "text-base"}`}>
-        <span className="text-[#1A73FF] font-light opacity-80">[</span>
-        <span className="tracking-[0.15em]">FRAMES</span>
-        <span className="text-[#1A73FF] font-light opacity-80">]</span>
+    <div className="flex flex-col leading-none select-none">
+      <div className="flex items-center bracket-logo text-[#0A0F1C] text-[15px] tracking-[0.14em]">
+        <span className="text-[#1A73FF] font-light mr-[1px]">[</span>
+        <span>FRAMES</span>
+        <span className="text-[#1A73FF] font-light ml-[1px]">]</span>
       </div>
-      <div className={`flex items-center justify-between px-[2px] ${isSmall ? "-mt-0.5" : "-mt-0.5"}`}>
-        <span className={`font-heading font-semibold text-[#1A73FF] tracking-[0.18em] uppercase ${isSmall ? "text-[8px]" : "text-[9px]"}`}>
-          BY FRADY
-        </span>
+      <div className="text-[#1A73FF] font-heading font-semibold text-[8px] tracking-[0.22em] uppercase mt-[1px] pl-[2px]">
+        BY FRADY
       </div>
     </div>
   );
 }
 
-export { FramesLogo };
-
 export default function SiteHeader() {
-  const [mobileOpen, setMobileOpen] = useState(false);
+  const [open, setOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 border-b border-[rgba(229,231,235,0.08)] bg-[rgba(10,15,28,0.92)] backdrop-blur-xl">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          {/* Logo */}
-          <Link href="/" className="flex items-center hover:opacity-80 transition-opacity">
-            <FramesLogo />
-          </Link>
+    <header className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-[#E5E7EB]">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 flex items-center justify-between h-16">
+        <Link href="/" onClick={() => setOpen(false)}>
+          <FramesLogo />
+        </Link>
 
-          {/* Desktop nav */}
-          <nav className="hidden md:flex items-center gap-1">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="px-4 py-2 text-sm font-medium text-[#9CA3AF] hover:text-[#F5F5F5] transition-colors rounded-md hover:bg-[rgba(229,231,235,0.05)]"
-              >
-                {link.label}
-              </Link>
-            ))}
-          </nav>
-
-          {/* CTA + Login */}
-          <div className="hidden md:flex items-center gap-3">
+        {/* Desktop nav */}
+        <nav className="hidden md:flex items-center gap-1">
+          {navLinks.map((l) => (
             <Link
-              href="/login"
-              className="px-4 py-2 text-sm font-medium text-[#9CA3AF] hover:text-[#F5F5F5] transition-colors"
+              key={l.href}
+              href={l.href}
+              className="px-4 py-2 text-sm font-medium text-[#6B7280] hover:text-[#0A0F1C] transition-colors rounded"
             >
-              Client Login
-            </Link>
-            <Link
-              href="/contact"
-              className="px-5 py-2 text-sm font-semibold text-white rounded-md bg-[#1A73FF] hover:bg-[#1557CC] transition-colors"
-            >
-              Start Your Website
-            </Link>
-          </div>
-
-          {/* Mobile toggle */}
-          <button
-            className="md:hidden p-2 text-[#9CA3AF] hover:text-[#F5F5F5] transition-colors"
-            onClick={() => setMobileOpen(!mobileOpen)}
-            aria-label="Toggle menu"
-          >
-            {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-          </button>
-        </div>
-      </div>
-
-      {/* Mobile nav */}
-      {mobileOpen && (
-        <div className="md:hidden border-t border-[rgba(229,231,235,0.08)] bg-[#0A0F1C] px-6 py-4 flex flex-col gap-1">
-          {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className="px-3 py-2.5 text-sm font-medium text-[#9CA3AF] hover:text-[#F5F5F5] transition-colors rounded-md hover:bg-[rgba(229,231,235,0.05)]"
-              onClick={() => setMobileOpen(false)}
-            >
-              {link.label}
+              {l.label}
             </Link>
           ))}
-          <div className="pt-3 border-t border-[rgba(229,231,235,0.08)] mt-2 flex flex-col gap-2">
+        </nav>
+
+        <div className="hidden md:flex items-center gap-3">
+          <Link href="/login" className="text-sm font-medium text-[#6B7280] hover:text-[#0A0F1C] transition-colors">
+            Client Login
+          </Link>
+          <Link href="/contact" className="btn-primary text-sm">
+            Let&apos;s Talk
+          </Link>
+        </div>
+
+        {/* Mobile toggle */}
+        <button
+          className="md:hidden p-2 text-[#6B7280] hover:text-[#0A0F1C] transition-colors"
+          onClick={() => setOpen(!open)}
+          aria-label="Toggle menu"
+        >
+          {open ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+        </button>
+      </div>
+
+      {/* Mobile menu */}
+      {open && (
+        <div className="md:hidden border-t border-[#E5E7EB] bg-white px-6 py-4 flex flex-col gap-1">
+          {navLinks.map((l) => (
             <Link
-              href="/login"
-              className="px-3 py-2.5 text-sm font-medium text-[#9CA3AF] hover:text-[#F5F5F5] transition-colors"
-              onClick={() => setMobileOpen(false)}
+              key={l.href}
+              href={l.href}
+              onClick={() => setOpen(false)}
+              className="px-3 py-2.5 text-sm font-medium text-[#6B7280] hover:text-[#0A0F1C] transition-colors rounded hover:bg-[#F9FAFB]"
             >
+              {l.label}
+            </Link>
+          ))}
+          <div className="mt-3 pt-3 border-t border-[#E5E7EB] flex flex-col gap-2">
+            <Link href="/login" onClick={() => setOpen(false)} className="px-3 py-2.5 text-sm font-medium text-[#6B7280]">
               Client Login
             </Link>
-            <Link
-              href="/contact"
-              className="px-4 py-2.5 text-sm font-semibold text-white rounded-md bg-[#1A73FF] hover:bg-[#1557CC] text-center transition-colors"
-              onClick={() => setMobileOpen(false)}
-            >
-              Start Your Website
+            <Link href="/contact" onClick={() => setOpen(false)} className="btn-primary justify-center">
+              Let&apos;s Talk
             </Link>
           </div>
         </div>

@@ -17,7 +17,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "Frames by Frady | Digital Web Design",
   description:
-    "Frames by Frady builds modern websites with ongoing hosting, updates, analytics, and support. Get a managed digital presence, not just a website.",
+    "Frames by Frady designs and develops clean, high-performing websites for brands that need to look sharp, move fast, and grow online.",
 };
 
 export default function RootLayout({
@@ -28,9 +28,9 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${poppins.variable} ${inter.variable} h-full antialiased`}
+      className={`${poppins.variable} ${inter.variable} h-full`}
     >
-      <body className="min-h-full flex flex-col bg-[#0A0F1C] text-[#F5F5F5]">
+      <body className="min-h-full flex flex-col bg-[#FAFAFA] text-[#0A0F1C] antialiased">
         {children}
       </body>
     </html>
