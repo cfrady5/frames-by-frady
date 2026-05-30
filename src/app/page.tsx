@@ -1,7 +1,125 @@
 import Link from "next/link";
-import { Check, Minus, Globe, Server, TrendingUp } from "lucide-react";
+import { Check, Minus, Globe, Server, TrendingUp, ArrowRight } from "lucide-react";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
+
+/* ─── Hero: large wordmark ───────────────────────────────────────────── */
+function HeroLogo() {
+  return (
+    <div className="flex flex-col leading-none select-none">
+      <div
+        className="flex items-center text-[#0A0F1C] tracking-[0.12em]"
+        style={{ fontFamily: "var(--font-poppins), system-ui, sans-serif", fontWeight: 800, fontSize: "clamp(28px, 4vw, 52px)" }}
+      >
+        <span style={{ color: "#1A73FF", fontWeight: 300, marginRight: "2px" }}>[</span>
+        <span>FRAMES</span>
+        <span style={{ color: "#1A73FF", fontWeight: 300, marginLeft: "2px" }}>]</span>
+      </div>
+      <div
+        className="text-[#1A73FF] tracking-[0.28em] uppercase mt-1"
+        style={{ fontFamily: "var(--font-poppins), system-ui, sans-serif", fontWeight: 600, fontSize: "clamp(8px, 0.9vw, 12px)", paddingLeft: "3px" }}
+      >
+        BY FRADY
+      </div>
+    </div>
+  );
+}
+
+/* ─── Hero: laptop mockup ────────────────────────────────────────────── */
+function LaptopMockup() {
+  return (
+    <div className="relative w-full" style={{ perspective: "1800px" }}>
+      <div style={{ transform: "rotateY(-6deg) rotateX(2deg)", transformStyle: "preserve-3d" }}>
+        {/* Screen bezel */}
+        <div
+          className="rounded-t-2xl p-[10px] sm:p-[14px]"
+          style={{ background: "linear-gradient(145deg, #3a3a3a, #222222)", boxShadow: "0 40px 80px rgba(0,0,0,0.28), 0 8px 24px rgba(0,0,0,0.18)" }}
+        >
+          {/* Screen */}
+          <div className="bg-white rounded-xl overflow-hidden" style={{ aspectRatio: "16/10" }}>
+            <div className="h-full flex flex-col">
+              {/* Browser chrome */}
+              <div className="flex items-center gap-2 px-3 py-2 bg-[#F8F9FB] border-b border-[#E5E7EB] flex-shrink-0">
+                <div className="flex gap-1">
+                  {["#F87171","#FBBF24","#34D399"].map((c, i) => (
+                    <div key={i} className="w-2 h-2 rounded-full" style={{ background: c }} />
+                  ))}
+                </div>
+                <div className="flex-1 mx-2 h-3.5 rounded bg-white border border-[#E5E7EB] flex items-center px-2">
+                  <span className="text-[8px] text-[#9CA3AF]">framesbyfrady.com</span>
+                </div>
+              </div>
+              {/* Site content */}
+              <div className="flex flex-1 overflow-hidden">
+                {/* Left: text content */}
+                <div className="flex-[1.1] px-4 py-4 flex flex-col justify-center gap-2.5 bg-white">
+                  {/* Site nav */}
+                  <div className="flex items-center justify-between mb-1">
+                    <div className="h-2 w-12 rounded bg-[#0A0F1C]" />
+                    <div className="flex gap-1.5">
+                      {[1, 2, 3].map((i) => <div key={i} className="h-1.5 w-6 rounded bg-[#E5E7EB]" />)}
+                      <div className="h-3.5 w-10 rounded bg-[#1A73FF]" />
+                    </div>
+                  </div>
+                  {/* Headline */}
+                  <div className="flex flex-col gap-0.5">
+                    <span className="font-heading font-bold text-[11px] sm:text-[13px] text-[#0A0F1C] leading-tight">Elevating</span>
+                    <span className="font-heading font-bold text-[11px] sm:text-[13px] text-[#1A73FF] italic leading-tight">brands online.</span>
+                  </div>
+                  <p className="text-[8px] text-[#6B7280] leading-relaxed">Strategy. Design. Results.</p>
+                  <div
+                    className="flex items-center justify-center rounded"
+                    style={{ background: "#1A73FF", height: "18px", width: "52px" }}
+                  >
+                    <span className="text-[7px] text-white font-semibold">Learn More</span>
+                  </div>
+                </div>
+                {/* Right: architectural image placeholder */}
+                <div className="flex-1 relative overflow-hidden" style={{ background: "linear-gradient(135deg, #CBD5E1 0%, #94A3B8 40%, #64748B 100%)" }}>
+                  {/* Geometric building shapes */}
+                  <div className="absolute inset-0">
+                    <div className="absolute top-0 left-0 w-full h-full" style={{ background: "linear-gradient(160deg, #D8E2EE 0%, #B8C5D4 50%, #8FA3B8 100%)" }} />
+                    {/* Vertical building slice — right */}
+                    <div
+                      className="absolute top-0 right-0 bottom-0 w-3/5"
+                      style={{ background: "linear-gradient(180deg, #C4CDD8 0%, #9DAFC2 100%)", clipPath: "polygon(15% 0, 100% 0, 100% 100%, 0% 100%)" }}
+                    />
+                    {/* Window grid overlay */}
+                    <div className="absolute inset-0 opacity-[0.12]" style={{
+                      backgroundImage: "linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)",
+                      backgroundSize: "12px 14px"
+                    }} />
+                    {/* Diagonal highlight edge */}
+                    <div
+                      className="absolute top-0 left-1/3 w-px h-full opacity-30"
+                      style={{ background: "linear-gradient(180deg, transparent, #ffffff, transparent)" }}
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        {/* Hinge bar */}
+        <div style={{ background: "linear-gradient(180deg, #3a3a3a, #2a2a2a)", height: "6px", margin: "0 6px", borderRadius: "0 0 3px 3px" }} />
+        {/* Keyboard base */}
+        <div
+          style={{
+            background: "linear-gradient(180deg, #C8C8C8 0%, #BABABA 100%)",
+            height: "14px",
+            borderRadius: "0 0 12px 12px",
+            boxShadow: "0 6px 16px rgba(0,0,0,0.15)"
+          }}
+        />
+      </div>
+      {/* Surface shadow/reflection */}
+      <div
+        className="absolute -bottom-3 left-4 right-4 h-3 rounded-full opacity-20"
+        style={{ background: "radial-gradient(ellipse, #000 0%, transparent 70%)", filter: "blur(6px)" }}
+      />
+    </div>
+  );
+}
 
 /* ─── Services ───────────────────────────────────────────────────────── */
 const services = [
@@ -94,23 +212,81 @@ export default function HomePage() {
       <main className="flex-1">
 
         {/* ── Hero ──────────────────────────────────────────────────── */}
-        <section className="pt-36 pb-24 md:pt-44 md:pb-32 bg-white">
-          <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center flex flex-col items-center gap-7">
-            <h1 className="font-heading font-bold text-5xl sm:text-6xl lg:text-[68px] text-[#0A0F1C] leading-[1.04] tracking-tight">
-              Websites that{" "}
-              <span className="text-[#1A73FF]">grow</span>{" "}
-              your business.
-            </h1>
-            <p className="text-[#4B5563] text-lg max-w-xl leading-relaxed">
-              Design, hosting, analytics, and growth support in one place.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-3 mt-1">
-              <Link href="#pricing" className="btn-primary text-sm px-6 py-3">
-                View Plans
-              </Link>
-              <Link href="/contact" className="btn-ghost text-sm px-6 py-3">
-                Book a Call
-              </Link>
+        <section
+          className="relative overflow-hidden"
+          style={{
+            minHeight: "calc(100vh - 64px)",
+            background: "linear-gradient(135deg, #ffffff 0%, #F5F7FA 60%, #EEF2F8 100%)",
+            display: "flex",
+            alignItems: "center",
+          }}
+        >
+          {/* Subtle grid texture */}
+          <div
+            className="absolute inset-0 opacity-[0.025] pointer-events-none"
+            style={{
+              backgroundImage: "linear-gradient(#0A0F1C 1px, transparent 1px), linear-gradient(90deg, #0A0F1C 1px, transparent 1px)",
+              backgroundSize: "48px 48px",
+            }}
+          />
+
+          <div className="relative w-full max-w-7xl mx-auto px-6 lg:px-12 py-20 lg:py-24">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-12 items-center">
+
+              {/* ── Left: copy ─────────────────────────────────────── */}
+              <div className="flex flex-col gap-8 lg:gap-10">
+                {/* Hero wordmark */}
+                <HeroLogo />
+
+                {/* Headline */}
+                <div className="flex flex-col gap-0" style={{ lineHeight: 0.96 }}>
+                  <h1
+                    className="font-heading font-black text-[#0A0F1C] tracking-tight"
+                    style={{ fontSize: "clamp(52px, 6.5vw, 96px)", lineHeight: 0.96 }}
+                  >
+                    Built with care.
+                  </h1>
+                  <h1
+                    className="font-heading font-black text-[#1A73FF] tracking-tight"
+                    style={{ fontSize: "clamp(52px, 6.5vw, 96px)", lineHeight: 0.96 }}
+                  >
+                    Designed to grow.
+                  </h1>
+                </div>
+
+                {/* Sub */}
+                <p className="text-[#4B5563] leading-relaxed max-w-lg" style={{ fontSize: "clamp(15px, 1.2vw, 18px)" }}>
+                  High-quality websites, hosting, and growth solutions for small businesses that deserve a partner they can trust.
+                </p>
+
+                {/* CTAs */}
+                <div className="flex flex-col sm:flex-row gap-3">
+                  <Link
+                    href="/contact"
+                    className="inline-flex items-center justify-center gap-2.5 font-semibold text-white rounded-xl transition-colors bg-[#1A73FF] hover:bg-[#1557CC] shadow-[0_4px_16px_rgba(26,115,255,0.30)]"
+                    style={{ padding: "14px 28px", fontSize: "15px" }}
+                  >
+                    Let&apos;s Talk About Your Project
+                    <ArrowRight className="w-4 h-4 flex-shrink-0" />
+                  </Link>
+                  <Link
+                    href="/portfolio"
+                    className="inline-flex items-center justify-center gap-2.5 font-semibold text-[#0A0F1C] rounded-xl transition-colors bg-white border border-[#E5E7EB] hover:border-[#D1D5DB] hover:bg-[#F8F9FB]"
+                    style={{ padding: "14px 28px", fontSize: "15px" }}
+                  >
+                    View Our Work
+                    <ArrowRight className="w-4 h-4 flex-shrink-0" />
+                  </Link>
+                </div>
+              </div>
+
+              {/* ── Right: laptop mockup ────────────────────────── */}
+              <div className="hidden lg:flex items-center justify-center w-full">
+                <div className="w-full max-w-xl">
+                  <LaptopMockup />
+                </div>
+              </div>
+
             </div>
           </div>
         </section>
