@@ -1,7 +1,12 @@
 import { Resend } from "resend";
 import type { LauncherPayload } from "./validation";
 
-const resend = new Resend(process.env.RESEND_API_KEY!);
+function getResend(): Resend {
+  const key = process.env.RESEND_API_KEY;
+  if (!key) throw new Error("RESEND_API_KEY is not configured.");
+  return new Resend(key);
+}
+
 const FROM = process.env.FROM_EMAIL ?? "Frames by Frady <no-reply@framesbyfrady.com>";
 const OWNER = process.env.OWNER_EMAIL ?? "contact@framesbyfrady.com";
 
@@ -82,7 +87,7 @@ export async function sendIntakeEmail(
 </body>
 </html>`;
 
-  await resend.emails.send({
+  await getResend().emails.send({
     from: FROM,
     to: OWNER,
     subject: `New Website Launcher Request: ${businessName}`,
@@ -149,7 +154,7 @@ export async function sendReadyForReviewEmail(data: ReviewData): Promise<void> {
 </body>
 </html>`;
 
-  await resend.emails.send({
+  await getResend().emails.send({
     from: FROM,
     to: OWNER,
     subject: `Website Ready for Review: ${businessName}`,
@@ -201,7 +206,7 @@ export async function sendErrorEmail(data: ErrorEmailData): Promise<void> {
 </body>
 </html>`;
 
-  await resend.emails.send({
+  await getResend().emails.send({
     from: FROM,
     to: OWNER,
     subject: `Website Launcher Error: ${businessName}`,
