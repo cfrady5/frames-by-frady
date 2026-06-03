@@ -15,8 +15,8 @@ export default function ContactPage() {
             <div className="lg:col-span-2 flex flex-col gap-8">
               <SectionHeading
                 label="Contact"
-                title="Let us build something together."
-                description="Tell us about your project. We will review your submission and get back to you within 1-2 business days."
+                title="Launch your website from a simple description."
+                description="Tell us about your business, choose your brand colors, and we'll use your submission to create a polished website direction built around your services, tone, and goals."
               />
               <div className="flex flex-col gap-4">
                 <div className="flex items-center gap-3">
@@ -34,7 +34,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <p className="text-xs text-[#9CA3AF] mb-0.5">Response time</p>
-                    <p className="text-sm text-[#0A0F1C] font-medium">Within 1-2 business days</p>
+                    <p className="text-sm text-[#0A0F1C] font-medium">Website request reviewed within 1-2 business days</p>
                   </div>
                 </div>
               </div>
