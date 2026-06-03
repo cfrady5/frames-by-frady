@@ -35,6 +35,7 @@ const colorFields = [
 
 export default function ContactForm() {
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [deploymentUrl, setDeploymentUrl] = useState<string | null>(null);
   const [form, setForm] = useState<FormState>({
     name: "",
     email: "",
@@ -67,7 +68,13 @@ export default function ContactForm() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(form),
       });
-      setStatus(res.ok ? "success" : "error");
+      if (res.ok) {
+        const data = await res.json().catch(() => ({}));
+        setDeploymentUrl(data.deploymentUrl ?? null);
+        setStatus("success");
+      } else {
+        setStatus("error");
+      }
     } catch {
       setStatus("error");
     }
@@ -79,9 +86,25 @@ export default function ContactForm() {
         <div className="w-12 h-12 rounded-full bg-[#EFF6FF] flex items-center justify-center">
           <CheckCircle className="w-6 h-6 text-[#1A73FF]" />
         </div>
-        <div>
-          <h3 className="font-heading font-bold text-xl text-[#0A0F1C] mb-2">Request received.</h3>
-          <p className="text-[#6B7280] text-sm">We will review your website request and get back to you within 1-2 business days.</p>
+        <div className="flex flex-col items-center gap-3">
+          <h3 className="font-heading font-bold text-xl text-[#0A0F1C]">Website request received.</h3>
+          {deploymentUrl ? (
+            <>
+              <p className="text-[#6B7280] text-sm max-w-sm">Your website has been generated. Click below to review it before we send it to the client.</p>
+              <a
+                href={deploymentUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-primary inline-flex items-center gap-2 mt-1"
+              >
+                View Website Preview
+              </a>
+            </>
+          ) : (
+            <p className="text-[#6B7280] text-sm max-w-sm">
+              Your submission has been sent. We will review your details and create a website preview based on your business description, services, goals, and brand colors.
+            </p>
+          )}
         </div>
       </div>
     );
@@ -249,7 +272,10 @@ export default function ContactForm() {
       </div>
 
       {status === "error" && (
-        <p className="text-sm text-red-500">Something went wrong. Please try again or email us directly.</p>
+        <p className="text-sm text-red-500">
+          Something went wrong while submitting your website request. Please try again or email us directly at{" "}
+          <a href="mailto:contact@framesbyfrady.com" className="underline">contact@framesbyfrady.com</a>.
+        </p>
       )}
 
       <button type="submit" disabled={status === "loading"} className="btn-primary disabled:opacity-50 w-fit">
