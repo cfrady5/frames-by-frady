@@ -64,7 +64,7 @@ export function FramesWordmark({
       style={{ color: textColor, fontFamily: "var(--font-poppins), system-ui, sans-serif" }}
     >
       frames
-      <span className="italic text-[#3BAE48] mx-[0.28em]">by</span>
+      <span className="text-[#3BAE48] mx-[0.28em]">by</span>
       frady
     </span>
   );

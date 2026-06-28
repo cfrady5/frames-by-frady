@@ -15,102 +15,6 @@ function HeroLogo() {
   );
 }
 
-/* ─── Hero: laptop mockup ────────────────────────────────────────────── */
-function LaptopMockup() {
-  return (
-    <div className="relative w-full" style={{ perspective: "1800px" }}>
-      <div style={{ transform: "rotateY(-6deg) rotateX(2deg)", transformStyle: "preserve-3d" }}>
-        {/* Screen bezel */}
-        <div
-          className="rounded-t-2xl p-[10px] sm:p-[14px]"
-          style={{ background: "linear-gradient(145deg, #3a3a3a, #222222)", boxShadow: "0 40px 80px rgba(0,0,0,0.28), 0 8px 24px rgba(0,0,0,0.18)" }}
-        >
-          {/* Screen */}
-          <div className="bg-white rounded-xl overflow-hidden" style={{ aspectRatio: "16/10" }}>
-            <div className="h-full flex flex-col">
-              {/* Browser chrome */}
-              <div className="flex items-center gap-2 px-3 py-2 bg-[#F8F9FB] border-b border-[#E5E7EB] flex-shrink-0">
-                <div className="flex gap-1">
-                  {["#F87171","#FBBF24","#34D399"].map((c, i) => (
-                    <div key={i} className="w-2 h-2 rounded-full" style={{ background: c }} />
-                  ))}
-                </div>
-                <div className="flex-1 mx-2 h-3.5 rounded bg-white border border-[#E5E7EB] flex items-center px-2">
-                  <span className="text-[8px] text-[#9CA3AF]">framesbyfrady.com</span>
-                </div>
-              </div>
-              {/* Site content */}
-              <div className="flex flex-1 overflow-hidden">
-                {/* Left: text content */}
-                <div className="flex-[1.1] px-4 py-4 flex flex-col justify-center gap-2.5 bg-white">
-                  {/* Site nav */}
-                  <div className="flex items-center justify-between mb-1">
-                    <div className="h-2 w-12 rounded bg-[#0A0F1C]" />
-                    <div className="flex gap-1.5">
-                      {[1, 2, 3].map((i) => <div key={i} className="h-1.5 w-6 rounded bg-[#E5E7EB]" />)}
-                      <div className="h-3.5 w-10 rounded bg-[#3BAE48]" />
-                    </div>
-                  </div>
-                  {/* Headline */}
-                  <div className="flex flex-col gap-0.5">
-                    <span className="font-heading font-bold text-[11px] sm:text-[13px] text-[#0A0F1C] leading-tight">Elevating</span>
-                    <span className="font-heading font-bold text-[11px] sm:text-[13px] text-[#3BAE48] italic leading-tight">brands online.</span>
-                  </div>
-                  <p className="text-[8px] text-[#6B7280] leading-relaxed">Strategy. Design. Results.</p>
-                  <div
-                    className="flex items-center justify-center rounded"
-                    style={{ background: "#3BAE48", height: "18px", width: "52px" }}
-                  >
-                    <span className="text-[7px] text-white font-semibold">Learn More</span>
-                  </div>
-                </div>
-                {/* Right: architectural image placeholder */}
-                <div className="flex-1 relative overflow-hidden" style={{ background: "linear-gradient(135deg, #CBD5E1 0%, #94A3B8 40%, #64748B 100%)" }}>
-                  {/* Geometric building shapes */}
-                  <div className="absolute inset-0">
-                    <div className="absolute top-0 left-0 w-full h-full" style={{ background: "linear-gradient(160deg, #D8E2EE 0%, #B8C5D4 50%, #8FA3B8 100%)" }} />
-                    {/* Vertical building slice — right */}
-                    <div
-                      className="absolute top-0 right-0 bottom-0 w-3/5"
-                      style={{ background: "linear-gradient(180deg, #C4CDD8 0%, #9DAFC2 100%)", clipPath: "polygon(15% 0, 100% 0, 100% 100%, 0% 100%)" }}
-                    />
-                    {/* Window grid overlay */}
-                    <div className="absolute inset-0 opacity-[0.12]" style={{
-                      backgroundImage: "linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)",
-                      backgroundSize: "12px 14px"
-                    }} />
-                    {/* Diagonal highlight edge */}
-                    <div
-                      className="absolute top-0 left-1/3 w-px h-full opacity-30"
-                      style={{ background: "linear-gradient(180deg, transparent, #ffffff, transparent)" }}
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        {/* Hinge bar */}
-        <div style={{ background: "linear-gradient(180deg, #3a3a3a, #2a2a2a)", height: "6px", margin: "0 6px", borderRadius: "0 0 3px 3px" }} />
-        {/* Keyboard base */}
-        <div
-          style={{
-            background: "linear-gradient(180deg, #C8C8C8 0%, #BABABA 100%)",
-            height: "14px",
-            borderRadius: "0 0 12px 12px",
-            boxShadow: "0 6px 16px rgba(0,0,0,0.15)"
-          }}
-        />
-      </div>
-      {/* Surface shadow/reflection */}
-      <div
-        className="absolute -bottom-3 left-4 right-4 h-3 rounded-full opacity-20"
-        style={{ background: "radial-gradient(ellipse, #000 0%, transparent 70%)", filter: "blur(6px)" }}
-      />
-    </div>
-  );
-}
-
 /* ─── Services ───────────────────────────────────────────────────────── */
 const services = [
   {
@@ -221,17 +125,6 @@ export default function HomePage() {
             style={{ background: "radial-gradient(circle, rgba(59,174,72,0.16) 0%, transparent 70%)", filter: "blur(24px)", animationDelay: "1.5s" }}
           />
 
-          {/* Spinning brand mark — large kinetic backdrop */}
-          <div className="pointer-events-none absolute inset-0 flex items-center justify-end overflow-hidden" aria-hidden="true">
-            <div className="animate-spin-slow opacity-[0.18] translate-x-1/4 lg:translate-x-0 lg:mr-[6%]">
-              <FramesMark
-                className="w-[40rem] h-[40rem] lg:w-[46rem] lg:h-[46rem]"
-                bg="transparent"
-                backStroke="rgba(255,255,255,0.5)"
-              />
-            </div>
-          </div>
-
           {/* Subtle grid texture */}
           <div
             className="absolute inset-0 opacity-[0.04] pointer-events-none"
@@ -313,10 +206,14 @@ export default function HomePage() {
                 </div>
               </div>
 
-              {/* ── Right: laptop mockup ────────────────────────── */}
+              {/* ── Right: spinning brand mark ──────────────────── */}
               <div className="hidden lg:flex items-center justify-center w-full animate-fade-in" style={{ animationDelay: "0.2s" }}>
-                <div className="w-full max-w-xl animate-float">
-                  <LaptopMockup />
+                <div className="animate-spin-slow drop-shadow-[0_0_60px_rgba(59,174,72,0.25)]">
+                  <FramesMark
+                    className="w-[30rem] h-[30rem] xl:w-[34rem] xl:h-[34rem]"
+                    bg="transparent"
+                    backStroke="rgba(255,255,255,0.35)"
+                  />
                 </div>
               </div>
 
