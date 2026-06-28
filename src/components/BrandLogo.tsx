@@ -1,9 +1,9 @@
 /**
  * Frames by Frady brand assets.
  *
- * The mark is two overlapping square "frames": a faint back frame and a solid
- * green front frame. The wordmark is lowercase "frames by frady" with the
- * connector "by" emphasized in brand green.
+ * The mark is two equal overlapping square "frames": a white back frame and a
+ * green front frame. The wordmark is lowercase, bold italic "frames by frady"
+ * with the connector "by" in brand green.
  *
  * Brand green: #3BAE48
  */
@@ -12,26 +12,26 @@ interface MarkProps {
   className?: string;
   /** Fill color for the front frame's interior (so it sits over the back frame). */
   bg?: string;
-  /** Stroke color of the faint back frame. */
+  /** Stroke color of the back frame. */
   backStroke?: string;
 }
 
 export function FramesMark({
   className = "w-9 h-9",
   bg = "#070B14",
-  backStroke = "rgba(255,255,255,0.28)",
+  backStroke = "#FFFFFF",
 }: MarkProps) {
   return (
     <svg viewBox="0 0 64 64" className={className} fill="none" aria-hidden="true">
-      {/* Back frame — faint, offset up-left */}
+      {/* Back frame — white, offset up-left */}
       <rect
         x="7"
         y="5"
         width="35"
         height="35"
-        rx="2.5"
+        rx="2"
         stroke={backStroke}
-        strokeWidth="3"
+        strokeWidth="4"
       />
       {/* Front frame — green, offset down-right, opaque interior */}
       <rect
@@ -39,7 +39,7 @@ export function FramesMark({
         y="24"
         width="35"
         height="35"
-        rx="2.5"
+        rx="2"
         fill={bg}
         stroke="#3BAE48"
         strokeWidth="4.5"
@@ -60,11 +60,11 @@ export function FramesWordmark({
 }: WordmarkProps) {
   return (
     <span
-      className={`font-heading font-semibold lowercase tracking-tight leading-none ${className}`}
-      style={{ color: textColor, fontFamily: "var(--font-poppins), system-ui, sans-serif" }}
+      className={`font-extrabold italic lowercase tracking-tight leading-none ${className}`}
+      style={{ color: textColor, fontFamily: "var(--font-inter), system-ui, sans-serif" }}
     >
       frames
-      <span className="text-[#3BAE48] mx-[0.28em]">by</span>
+      <span className="text-[#3BAE48] mx-[0.26em]">by</span>
       frady
     </span>
   );
@@ -86,7 +86,7 @@ export function FramesLogo({
   wordmarkClassName = "text-[17px]",
   textColor = "#FFFFFF",
   bg = "#070B14",
-  backStroke = "rgba(255,255,255,0.28)",
+  backStroke = "#FFFFFF",
 }: LogoProps) {
   return (
     <span className={`inline-flex items-center gap-2.5 select-none ${className}`}>

@@ -212,7 +212,7 @@ export default function HomePage() {
                   <FramesMark
                     className="w-[30rem] h-[30rem] xl:w-[34rem] xl:h-[34rem]"
                     bg="transparent"
-                    backStroke="rgba(255,255,255,0.35)"
+                    backStroke="rgba(255,255,255,0.85)"
                   />
                 </div>
               </div>
