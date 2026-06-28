@@ -9,10 +9,10 @@ interface EditRequest {
 }
 
 const statusColors: Record<EditRequest["status"], string> = {
-  "New": "bg-[rgba(26,115,255,0.12)] text-[#1A73FF]",
-  "In Progress": "bg-[rgba(26,115,255,0.2)] text-[#60A5FA]",
+  "New": "bg-[rgba(59,174,72,0.12)] text-[#3BAE48]",
+  "In Progress": "bg-[rgba(59,174,72,0.2)] text-[#60A5FA]",
   "Waiting on Client": "bg-[rgba(234,179,8,0.12)] text-yellow-400",
-  "Completed": "bg-[rgba(26,115,255,0.08)] text-[#0D47A1]",
+  "Completed": "bg-[rgba(59,174,72,0.08)] text-[#1E6B2A]",
 };
 
 const priorityColors: Record<string, string> = {

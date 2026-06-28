@@ -32,14 +32,14 @@ export default function PricingCard({
     >
       {badge && (
         <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-          <span className="px-3 py-1 text-xs font-semibold rounded-full bg-[#1A73FF] text-white">
+          <span className="px-3 py-1 text-xs font-semibold rounded-full bg-[#3BAE48] text-white">
             {badge}
           </span>
         </div>
       )}
 
       <div className="flex flex-col gap-2">
-        <p className={`text-xs font-semibold uppercase tracking-widest ${highlighted ? "text-[#93C5FD]" : "text-[#1A73FF]"}`}>
+        <p className={`text-xs font-semibold uppercase tracking-widest ${highlighted ? "text-[#93C5FD]" : "text-[#3BAE48]"}`}>
           {name}
         </p>
         <div className="flex items-baseline gap-1">
@@ -57,7 +57,7 @@ export default function PricingCard({
         {features.map((feature) => (
           <li key={feature} className="flex items-start gap-3">
             <Check
-              className={`w-4 h-4 mt-0.5 flex-shrink-0 ${highlighted ? "text-[#93C5FD]" : "text-[#1A73FF]"}`}
+              className={`w-4 h-4 mt-0.5 flex-shrink-0 ${highlighted ? "text-[#93C5FD]" : "text-[#3BAE48]"}`}
               strokeWidth={2.5}
             />
             <span className={`text-sm ${highlighted ? "text-[#D1D5DB]" : "text-[#6B7280]"}`}>{feature}</span>
@@ -69,7 +69,7 @@ export default function PricingCard({
         href={href}
         className={`w-full py-3 rounded-md text-sm font-semibold text-center transition-all ${
           highlighted
-            ? "bg-[#1A73FF] text-white hover:bg-[#1557CC]"
+            ? "bg-[#3BAE48] text-white hover:bg-[#2E8C39]"
             : "border border-[#E5E7EB] text-[#0A0F1C] hover:border-[#D1D5DB] hover:bg-[#F9FAFB]"
         }`}
       >

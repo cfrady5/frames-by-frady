@@ -26,7 +26,7 @@ export default function EditRequestForm({ onSubmit }: EditRequestFormProps) {
     setLoading(false);
   };
 
-  const inputClass = "w-full px-4 py-3 rounded-md bg-[rgba(229,231,235,0.05)] border border-[rgba(229,231,235,0.12)] text-[#F5F5F5] placeholder-[#9CA3AF] text-sm focus:outline-none focus:border-[rgba(26,115,255,0.5)] transition-all";
+  const inputClass = "w-full px-4 py-3 rounded-md bg-[rgba(229,231,235,0.05)] border border-[rgba(229,231,235,0.12)] text-[#F5F5F5] placeholder-[#9CA3AF] text-sm focus:outline-none focus:border-[rgba(59,174,72,0.5)] transition-all";
 
   return (
     <form onSubmit={handleSubmit} className="flex flex-col gap-4">
@@ -54,7 +54,7 @@ export default function EditRequestForm({ onSubmit }: EditRequestFormProps) {
         <label className="text-xs font-semibold text-[#9CA3AF] uppercase tracking-wide">Additional Notes</label>
         <textarea name="notes" value={form.notes} onChange={handleChange} rows={2} placeholder="Anything else we should know..." className={`${inputClass} resize-none`} />
       </div>
-      <button type="submit" disabled={loading} className="inline-flex items-center justify-center gap-2 px-5 py-3 text-sm font-semibold text-white rounded-md bg-[#1A73FF] hover:bg-[#1557CC] transition-colors disabled:opacity-60 w-fit">
+      <button type="submit" disabled={loading} className="inline-flex items-center justify-center gap-2 px-5 py-3 text-sm font-semibold text-white rounded-md bg-[#3BAE48] hover:bg-[#2E8C39] transition-colors disabled:opacity-60 w-fit">
         {loading ? "Submitting..." : <><Send className="w-4 h-4" /> Submit Request</>}
       </button>
     </form>

@@ -12,7 +12,7 @@ export default function LoginPage() {
         <LoginCard />
         <p className="text-xs text-[#9CA3AF] text-center">
           Not a client yet?{" "}
-          <Link href="/contact" className="text-[#1A73FF] hover:text-[#1557CC] transition-colors">
+          <Link href="/contact" className="text-[#3BAE48] hover:text-[#2E8C39] transition-colors">
             Start your website
           </Link>
         </p>

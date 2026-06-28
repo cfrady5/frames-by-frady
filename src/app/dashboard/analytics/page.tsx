@@ -46,8 +46,8 @@ export default function AnalyticsPage() {
             <CartesianGrid strokeDasharray="3 3" stroke="#F3F4F6" vertical={false} />
             <XAxis dataKey="day" tick={{ fill: "#9CA3AF", fontSize: 11 }} axisLine={false} tickLine={false} />
             <YAxis tick={{ fill: "#9CA3AF", fontSize: 11 }} axisLine={false} tickLine={false} />
-            <Tooltip contentStyle={{ background: "#fff", border: "1px solid #E5E7EB", borderRadius: 6, color: "#0A0F1C", fontSize: 12 }} cursor={{ fill: "rgba(26,115,255,0.04)" }} />
-            <Bar dataKey="visitors" fill="#1A73FF" radius={[4,4,0,0]} />
+            <Tooltip contentStyle={{ background: "#fff", border: "1px solid #E5E7EB", borderRadius: 6, color: "#0A0F1C", fontSize: 12 }} cursor={{ fill: "rgba(59,174,72,0.04)" }} />
+            <Bar dataKey="visitors" fill="#3BAE48" radius={[4,4,0,0]} />
           </BarChart>
         </ResponsiveContainer>
       </div>
@@ -60,7 +60,7 @@ export default function AnalyticsPage() {
                 <span className="text-sm text-[#6B7280] min-w-0 truncate">{p.label} <span className="text-xs opacity-50">{p.page}</span></span>
                 <div className="flex items-center gap-3 flex-shrink-0">
                   <div className="w-24 h-1.5 rounded-full bg-[#F3F4F6] overflow-hidden">
-                    <div className="h-full rounded-full bg-[#1A73FF]" style={{ width: `${(p.views / topPages[0].views) * 100}%` }} />
+                    <div className="h-full rounded-full bg-[#3BAE48]" style={{ width: `${(p.views / topPages[0].views) * 100}%` }} />
                   </div>
                   <span className="text-sm text-[#0A0F1C] font-medium w-12 text-right">{p.views.toLocaleString()}</span>
                 </div>

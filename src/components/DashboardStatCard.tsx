@@ -13,12 +13,12 @@ export default function DashboardStatCard({ icon: Icon, label, value, subtext, t
   return (
     <div className="agency-card rounded-lg p-5 flex flex-col gap-3">
       <div className="flex items-start justify-between">
-        <div className="w-9 h-9 rounded-md bg-[#EFF6FF] flex items-center justify-center">
-          <Icon className="w-4 h-4 text-[#1A73FF]" strokeWidth={1.75} />
+        <div className="w-9 h-9 rounded-md bg-[#EDF7EE] flex items-center justify-center">
+          <Icon className="w-4 h-4 text-[#3BAE48]" strokeWidth={1.75} />
         </div>
         {trend && trendValue && (
           <span className={`text-xs font-semibold px-2 py-0.5 rounded ${
-            trend === "up" ? "bg-[#EFF6FF] text-[#1A73FF]"
+            trend === "up" ? "bg-[#EDF7EE] text-[#3BAE48]"
             : trend === "down" ? "bg-red-50 text-red-500"
             : "bg-[#F5F5F5] text-[#6B7280]"
           }`}>

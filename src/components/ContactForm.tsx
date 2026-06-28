@@ -93,26 +93,26 @@ export default function ContactForm() {
   };
 
   const input =
-    "w-full px-4 py-3 rounded-md bg-[#FAFAFA] border border-[#E5E7EB] text-[#0A0F1C] placeholder-[#9CA3AF] text-sm focus:outline-none focus:border-[#1A73FF] focus:bg-white transition-all";
+    "w-full px-4 py-3 rounded-md bg-[#0B121C] border border-white/12 text-white placeholder-[#9CA3AF] text-sm focus:outline-none focus:border-[#3BAE48] focus:bg-[#0B121C] transition-all";
 
   const label =
-    "text-xs font-semibold text-[#6B7280] uppercase tracking-wide";
+    "text-xs font-semibold text-[#9CA8B8] uppercase tracking-wide";
 
   const colorInput =
-    "h-11 w-14 cursor-pointer rounded-md border border-[#E5E7EB] bg-white p-1";
+    "h-11 w-14 cursor-pointer rounded-md border border-white/12 bg-[#0B121C] p-1";
 
   if (status === "success") {
     return (
       <div className="flex flex-col items-center text-center gap-5 py-8">
-        <div className="w-12 h-12 rounded-full bg-[#EFF6FF] flex items-center justify-center">
-          <CheckCircle className="w-6 h-6 text-[#1A73FF]" />
+        <div className="w-12 h-12 rounded-full bg-[#3BAE48]/14 flex items-center justify-center">
+          <CheckCircle className="w-6 h-6 text-[#3BAE48]" />
         </div>
 
         <div>
-          <h3 className="font-heading font-bold text-xl text-[#0A0F1C] mb-2">
+          <h3 className="font-heading font-bold text-xl text-white mb-2">
             Website request received.
           </h3>
-          <p className="text-[#6B7280] text-sm max-w-md">
+          <p className="text-[#9CA8B8] text-sm max-w-md">
             We will review your submission and use your business details, goals,
             and brand colors to create your website preview.
           </p>
@@ -265,15 +265,15 @@ export default function ContactForm() {
       <div className="flex flex-col gap-3">
         <div>
           <label className={label}>Brand Color Selection *</label>
-          <p className="mt-1 text-sm text-[#6B7280] leading-relaxed">
+          <p className="mt-1 text-sm text-[#9CA8B8] leading-relaxed">
             Choose three brand colors. These hex codes will be used to generate
             your website&apos;s design system.
           </p>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-          <div className="rounded-md border border-[#E5E7EB] bg-[#FAFAFA] p-4">
-            <label className="block text-xs font-semibold text-[#6B7280] uppercase tracking-wide mb-3">
+          <div className="rounded-md border border-white/12 bg-[#0B121C] p-4">
+            <label className="block text-xs font-semibold text-[#9CA8B8] uppercase tracking-wide mb-3">
               Primary
             </label>
             <div className="flex items-center gap-3">
@@ -285,14 +285,14 @@ export default function ContactForm() {
                 onChange={handleChange}
                 className={colorInput}
               />
-              <span className="text-sm font-medium text-[#0A0F1C]">
+              <span className="text-sm font-medium text-white">
                 {form.primaryColor}
               </span>
             </div>
           </div>
 
-          <div className="rounded-md border border-[#E5E7EB] bg-[#FAFAFA] p-4">
-            <label className="block text-xs font-semibold text-[#6B7280] uppercase tracking-wide mb-3">
+          <div className="rounded-md border border-white/12 bg-[#0B121C] p-4">
+            <label className="block text-xs font-semibold text-[#9CA8B8] uppercase tracking-wide mb-3">
               Secondary
             </label>
             <div className="flex items-center gap-3">
@@ -304,14 +304,14 @@ export default function ContactForm() {
                 onChange={handleChange}
                 className={colorInput}
               />
-              <span className="text-sm font-medium text-[#0A0F1C]">
+              <span className="text-sm font-medium text-white">
                 {form.secondaryColor}
               </span>
             </div>
           </div>
 
-          <div className="rounded-md border border-[#E5E7EB] bg-[#FAFAFA] p-4">
-            <label className="block text-xs font-semibold text-[#6B7280] uppercase tracking-wide mb-3">
+          <div className="rounded-md border border-white/12 bg-[#0B121C] p-4">
+            <label className="block text-xs font-semibold text-[#9CA8B8] uppercase tracking-wide mb-3">
               Accent
             </label>
             <div className="flex items-center gap-3">
@@ -323,7 +323,7 @@ export default function ContactForm() {
                 onChange={handleChange}
                 className={colorInput}
               />
-              <span className="text-sm font-medium text-[#0A0F1C]">
+              <span className="text-sm font-medium text-white">
                 {form.accentColor}
               </span>
             </div>

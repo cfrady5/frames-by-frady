@@ -10,7 +10,7 @@ const links = [
 
 export default function SiteFooter() {
   return (
-    <footer className="border-t border-[#E5E7EB] bg-white">
+    <footer className="border-t border-white/8 bg-[#070B14]">
       <div className="max-w-6xl mx-auto px-6 lg:px-8 py-10 flex flex-col sm:flex-row items-center justify-between gap-6">
         <div className="flex flex-col items-center sm:items-start gap-1">
           <Link href="/">
@@ -24,7 +24,7 @@ export default function SiteFooter() {
             <Link
               key={l.label}
               href={l.href}
-              className="text-sm text-[#6B7280] hover:text-[#0A0F1C] transition-colors"
+              className="text-sm text-[#9CA8B8] hover:text-white transition-colors"
             >
               {l.label}
             </Link>

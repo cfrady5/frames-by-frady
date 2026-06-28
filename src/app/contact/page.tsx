@@ -3,6 +3,7 @@ import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import SectionHeading from "@/components/SectionHeading";
 import ContactForm from "@/components/ContactForm";
+import Reveal from "@/components/Reveal";
 
 export default function ContactPage() {
   return (
@@ -10,10 +11,10 @@ export default function ContactPage() {
       <SiteHeader />
 
       <main className="flex-1 pt-16">
-        <section className="py-20 border-b border-[#E5E7EB] bg-white">
+        <section className="py-20 border-b border-white/8 bg-[#070B14]">
           <div className="max-w-7xl mx-auto px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-5 gap-16">
             {/* Left */}
-            <div className="lg:col-span-2 flex flex-col gap-8">
+            <Reveal as="div" className="lg:col-span-2 flex flex-col gap-8">
               <SectionHeading
                 label="Website Launcher"
                 title="Launch your website from a simple description."
@@ -22,72 +23,72 @@ export default function ContactPage() {
 
               <div className="flex flex-col gap-4">
                 <div className="flex items-center gap-3">
-                  <div className="w-9 h-9 rounded-md bg-[#EFF6FF] flex items-center justify-center">
+                  <div className="w-9 h-9 rounded-md bg-[#3BAE48]/14 flex items-center justify-center">
                     <Sparkles
-                      className="w-4 h-4 text-[#1A73FF]"
+                      className="w-4 h-4 text-[#3BAE48]"
                       strokeWidth={1.75}
                     />
                   </div>
 
                   <div>
                     <p className="text-xs text-[#9CA3AF] mb-0.5">What happens next</p>
-                    <p className="text-sm text-[#0A0F1C] font-medium">
+                    <p className="text-sm text-white font-medium">
                       Your submission is used to generate a website preview.
                     </p>
                   </div>
                 </div>
 
                 <div className="flex items-center gap-3">
-                  <div className="w-9 h-9 rounded-md bg-[#EFF6FF] flex items-center justify-center">
+                  <div className="w-9 h-9 rounded-md bg-[#3BAE48]/14 flex items-center justify-center">
                     <Mail
-                      className="w-4 h-4 text-[#1A73FF]"
+                      className="w-4 h-4 text-[#3BAE48]"
                       strokeWidth={1.75}
                     />
                   </div>
 
                   <div>
                     <p className="text-xs text-[#9CA3AF] mb-0.5">Email</p>
-                    <p className="text-sm text-[#0A0F1C] font-medium">
+                    <p className="text-sm text-white font-medium">
                       hello@framesbyfrady.com
                     </p>
                   </div>
                 </div>
 
                 <div className="flex items-center gap-3">
-                  <div className="w-9 h-9 rounded-md bg-[#EFF6FF] flex items-center justify-center">
+                  <div className="w-9 h-9 rounded-md bg-[#3BAE48]/14 flex items-center justify-center">
                     <Clock
-                      className="w-4 h-4 text-[#1A73FF]"
+                      className="w-4 h-4 text-[#3BAE48]"
                       strokeWidth={1.75}
                     />
                   </div>
 
                   <div>
                     <p className="text-xs text-[#9CA3AF] mb-0.5">Response time</p>
-                    <p className="text-sm text-[#0A0F1C] font-medium">
+                    <p className="text-sm text-white font-medium">
                       Website request reviewed within 1-2 business days
                     </p>
                   </div>
                 </div>
               </div>
 
-              <div className="rounded-xl border border-[#E5E7EB] bg-[#F9FAFB] p-5">
-                <p className="text-sm font-semibold text-[#0A0F1C] mb-2">
+              <div className="rounded-xl border border-white/8 bg-[#0F1623] p-5">
+                <p className="text-sm font-semibold text-white mb-2">
                   Website Launcher Intake
                 </p>
-                <p className="text-sm text-[#5F6B7A] leading-relaxed">
+                <p className="text-sm text-[#9CA8B8] leading-relaxed">
                   Include your business description, services, preferred tone,
                   website goals, and three brand colors. The selected hex codes
                   will be used to create the design system for your preview.
                 </p>
               </div>
-            </div>
+            </Reveal>
 
             {/* Form */}
-            <div className="lg:col-span-3">
+            <Reveal as="div" delay={120} className="lg:col-span-3">
               <div className="agency-card rounded-xl p-8">
                 <ContactForm />
               </div>
-            </div>
+            </Reveal>
           </div>
         </section>
       </main>

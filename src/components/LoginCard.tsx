@@ -20,7 +20,7 @@ export default function LoginCard() {
     router.push("/dashboard");
   };
 
-  const input = "w-full px-4 py-3 rounded-md bg-[#FAFAFA] border border-[#E5E7EB] text-[#0A0F1C] placeholder-[#9CA3AF] text-sm focus:outline-none focus:border-[#1A73FF] focus:bg-white transition-all";
+  const input = "w-full px-4 py-3 rounded-md bg-[#FAFAFA] border border-[#E5E7EB] text-[#0A0F1C] placeholder-[#9CA3AF] text-sm focus:outline-none focus:border-[#3BAE48] focus:bg-white transition-all";
 
   return (
     <div className="w-full agency-card rounded-xl p-8 flex flex-col gap-6">
@@ -36,7 +36,7 @@ export default function LoginCard() {
         <div className="flex flex-col gap-1.5">
           <div className="flex items-center justify-between">
             <label className="text-xs font-semibold text-[#6B7280] uppercase tracking-wide">Password</label>
-            <Link href="/forgot-password" className="text-xs text-[#1A73FF] hover:text-[#1557CC] transition-colors">Forgot password?</Link>
+            <Link href="/forgot-password" className="text-xs text-[#3BAE48] hover:text-[#2E8C39] transition-colors">Forgot password?</Link>
           </div>
           <div className="relative">
             <input type={showPassword ? "text" : "password"} required value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Your password" className={`${input} pr-10`} />

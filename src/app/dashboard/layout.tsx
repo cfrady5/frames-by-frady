@@ -19,11 +19,11 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
           <Link href="/" className="hover:opacity-80 transition-opacity block">
             <div className="flex flex-col leading-none select-none">
               <div className="flex items-center bracket-logo text-white text-[15px] tracking-[0.14em]">
-                <span className="text-[#1A73FF] font-light mr-[1px]">[</span>
+                <span className="text-[#3BAE48] font-light mr-[1px]">[</span>
                 <span>FRAMES</span>
-                <span className="text-[#1A73FF] font-light ml-[1px]">]</span>
+                <span className="text-[#3BAE48] font-light ml-[1px]">]</span>
               </div>
-              <div className="text-[#1A73FF] font-heading font-semibold text-[8px] tracking-[0.22em] uppercase mt-[1px] pl-[2px]">
+              <div className="text-[#3BAE48] font-heading font-semibold text-[8px] tracking-[0.22em] uppercase mt-[1px] pl-[2px]">
                 BY FRADY
               </div>
             </div>

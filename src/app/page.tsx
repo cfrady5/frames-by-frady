@@ -1,26 +1,16 @@
 import Link from "next/link";
-import { Check, Minus, Globe, Server, TrendingUp, ArrowRight } from "lucide-react";
+import { Check, Minus, Globe, Server, TrendingUp, ArrowRight, Star } from "lucide-react";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
+import Reveal from "@/components/Reveal";
+import { FramesMark, FramesWordmark } from "@/components/BrandLogo";
 
-/* ─── Hero: large wordmark ───────────────────────────────────────────── */
+/* ─── Hero: brand lockup ─────────────────────────────────────────────── */
 function HeroLogo() {
   return (
-    <div className="flex flex-col leading-none select-none">
-      <div
-        className="flex items-center text-[#0A0F1C] tracking-[0.12em]"
-        style={{ fontFamily: "var(--font-poppins), system-ui, sans-serif", fontWeight: 800, fontSize: "clamp(28px, 4vw, 52px)" }}
-      >
-        <span style={{ color: "#1A73FF", fontWeight: 300, marginRight: "2px" }}>[</span>
-        <span>FRAMES</span>
-        <span style={{ color: "#1A73FF", fontWeight: 300, marginLeft: "2px" }}>]</span>
-      </div>
-      <div
-        className="text-[#1A73FF] tracking-[0.28em] uppercase mt-1"
-        style={{ fontFamily: "var(--font-poppins), system-ui, sans-serif", fontWeight: 600, fontSize: "clamp(8px, 0.9vw, 12px)", paddingLeft: "3px" }}
-      >
-        BY FRADY
-      </div>
+    <div className="inline-flex items-center gap-3 select-none">
+      <FramesMark className="w-12 h-12 sm:w-14 sm:h-14" />
+      <FramesWordmark className="text-2xl sm:text-3xl" />
     </div>
   );
 }
@@ -58,18 +48,18 @@ function LaptopMockup() {
                     <div className="h-2 w-12 rounded bg-[#0A0F1C]" />
                     <div className="flex gap-1.5">
                       {[1, 2, 3].map((i) => <div key={i} className="h-1.5 w-6 rounded bg-[#E5E7EB]" />)}
-                      <div className="h-3.5 w-10 rounded bg-[#1A73FF]" />
+                      <div className="h-3.5 w-10 rounded bg-[#3BAE48]" />
                     </div>
                   </div>
                   {/* Headline */}
                   <div className="flex flex-col gap-0.5">
                     <span className="font-heading font-bold text-[11px] sm:text-[13px] text-[#0A0F1C] leading-tight">Elevating</span>
-                    <span className="font-heading font-bold text-[11px] sm:text-[13px] text-[#1A73FF] italic leading-tight">brands online.</span>
+                    <span className="font-heading font-bold text-[11px] sm:text-[13px] text-[#3BAE48] italic leading-tight">brands online.</span>
                   </div>
                   <p className="text-[8px] text-[#6B7280] leading-relaxed">Strategy. Design. Results.</p>
                   <div
                     className="flex items-center justify-center rounded"
-                    style={{ background: "#1A73FF", height: "18px", width: "52px" }}
+                    style={{ background: "#3BAE48", height: "18px", width: "52px" }}
                   >
                     <span className="text-[7px] text-white font-semibold">Learn More</span>
                   </div>
@@ -216,16 +206,37 @@ export default function HomePage() {
           className="relative overflow-hidden"
           style={{
             minHeight: "calc(100vh - 64px)",
-            background: "linear-gradient(135deg, #ffffff 0%, #F5F7FA 60%, #EEF2F8 100%)",
+            background: "linear-gradient(135deg, #070B14 0%, #0A1018 55%, #0A140F 100%)",
             display: "flex",
             alignItems: "center",
           }}
         >
+          {/* Animated aurora blobs */}
+          <div
+            className="absolute -top-32 -left-24 w-[34rem] h-[34rem] rounded-full pointer-events-none animate-float"
+            style={{ background: "radial-gradient(circle, rgba(59,174,72,0.22) 0%, transparent 70%)", filter: "blur(20px)" }}
+          />
+          <div
+            className="absolute top-1/3 -right-32 w-[40rem] h-[40rem] rounded-full pointer-events-none animate-float"
+            style={{ background: "radial-gradient(circle, rgba(59,174,72,0.16) 0%, transparent 70%)", filter: "blur(24px)", animationDelay: "1.5s" }}
+          />
+
+          {/* Spinning brand mark — large kinetic backdrop */}
+          <div className="pointer-events-none absolute inset-0 flex items-center justify-end overflow-hidden" aria-hidden="true">
+            <div className="animate-spin-slow opacity-[0.18] translate-x-1/4 lg:translate-x-0 lg:mr-[6%]">
+              <FramesMark
+                className="w-[40rem] h-[40rem] lg:w-[46rem] lg:h-[46rem]"
+                bg="transparent"
+                backStroke="rgba(255,255,255,0.5)"
+              />
+            </div>
+          </div>
+
           {/* Subtle grid texture */}
           <div
-            className="absolute inset-0 opacity-[0.025] pointer-events-none"
+            className="absolute inset-0 opacity-[0.04] pointer-events-none"
             style={{
-              backgroundImage: "linear-gradient(#0A0F1C 1px, transparent 1px), linear-gradient(90deg, #0A0F1C 1px, transparent 1px)",
+              backgroundImage: "linear-gradient(#FFFFFF 1px, transparent 1px), linear-gradient(90deg, #FFFFFF 1px, transparent 1px)",
               backgroundSize: "48px 48px",
             }}
           />
@@ -236,18 +247,20 @@ export default function HomePage() {
               {/* ── Left: copy ─────────────────────────────────────── */}
               <div className="flex flex-col gap-8 lg:gap-10">
                 {/* Hero wordmark */}
-                <HeroLogo />
+                <div className="animate-fade-up">
+                  <HeroLogo />
+                </div>
 
                 {/* Headline */}
-                <div className="flex flex-col gap-0" style={{ lineHeight: 0.96 }}>
+                <div className="flex flex-col gap-0 animate-fade-up" style={{ lineHeight: 0.96, animationDelay: "0.08s" }}>
                   <h1
-                    className="font-heading font-black text-[#0A0F1C] tracking-tight"
+                    className="font-heading font-black text-white tracking-tight"
                     style={{ fontSize: "clamp(52px, 6.5vw, 96px)", lineHeight: 0.96 }}
                   >
                     Built with care.
                   </h1>
                   <h1
-                    className="font-heading font-black text-[#1A73FF] tracking-tight"
+                    className="font-heading font-black text-[#3BAE48] tracking-tight"
                     style={{ fontSize: "clamp(52px, 6.5vw, 96px)", lineHeight: 0.96 }}
                   >
                     Designed to grow.
@@ -255,34 +268,54 @@ export default function HomePage() {
                 </div>
 
                 {/* Sub */}
-                <p className="text-[#4B5563] leading-relaxed max-w-lg" style={{ fontSize: "clamp(15px, 1.2vw, 18px)" }}>
+                <p
+                  className="text-[#9CA8B8] leading-relaxed max-w-lg animate-fade-up"
+                  style={{ fontSize: "clamp(15px, 1.2vw, 18px)", animationDelay: "0.16s" }}
+                >
                   High-quality websites, hosting, and growth solutions for small businesses that deserve a partner they can trust.
                 </p>
 
                 {/* CTAs */}
-                <div className="flex flex-col sm:flex-row gap-3">
+                <div className="flex flex-col sm:flex-row gap-3 animate-fade-up" style={{ animationDelay: "0.24s" }}>
                   <Link
                     href="/contact"
-                    className="inline-flex items-center justify-center gap-2.5 font-semibold text-white rounded-xl transition-colors bg-[#1A73FF] hover:bg-[#1557CC] shadow-[0_4px_16px_rgba(26,115,255,0.30)]"
+                    className="group inline-flex items-center justify-center gap-2.5 font-semibold text-white rounded-xl transition-all bg-[#3BAE48] hover:bg-[#2E8C39] hover:-translate-y-0.5 shadow-[0_4px_16px_rgba(59,174,72,0.30)] hover:shadow-[0_10px_28px_rgba(59,174,72,0.38)]"
                     style={{ padding: "14px 28px", fontSize: "15px" }}
                   >
                     Let&apos;s Talk About Your Project
-                    <ArrowRight className="w-4 h-4 flex-shrink-0" />
+                    <ArrowRight className="btn-arrow w-4 h-4 flex-shrink-0" />
                   </Link>
                   <Link
                     href="/portfolio"
-                    className="inline-flex items-center justify-center gap-2.5 font-semibold text-[#0A0F1C] rounded-xl transition-colors bg-white border border-[#E5E7EB] hover:border-[#D1D5DB] hover:bg-[#F8F9FB]"
+                    className="group inline-flex items-center justify-center gap-2.5 font-semibold text-white rounded-xl transition-all bg-white/[0.03] border border-white/16 hover:border-[#3BAE48]/50 hover:bg-white/[0.06] hover:-translate-y-0.5"
                     style={{ padding: "14px 28px", fontSize: "15px" }}
                   >
                     View Our Work
-                    <ArrowRight className="w-4 h-4 flex-shrink-0" />
+                    <ArrowRight className="btn-arrow w-4 h-4 flex-shrink-0" />
                   </Link>
+                </div>
+
+                {/* Trust bar */}
+                <div className="flex flex-wrap items-center gap-x-6 gap-y-3 animate-fade-up" style={{ animationDelay: "0.32s" }}>
+                  <div className="flex items-center gap-1.5">
+                    <div className="flex">
+                      {[0, 1, 2, 3, 4].map((i) => (
+                        <Star key={i} className="w-4 h-4 fill-[#FBBF24] text-[#FBBF24]" />
+                      ))}
+                    </div>
+                    <span className="text-sm text-[#9CA8B8]">Loved by local businesses</span>
+                  </div>
+                  <div className="hidden sm:block w-px h-5 bg-white/10" />
+                  <p className="text-sm text-[#9CA8B8]">
+                    <span className="font-semibold text-white">50+</span>{" "}
+                    sites launched &amp; managed
+                  </p>
                 </div>
               </div>
 
               {/* ── Right: laptop mockup ────────────────────────── */}
-              <div className="hidden lg:flex items-center justify-center w-full">
-                <div className="w-full max-w-xl">
+              <div className="hidden lg:flex items-center justify-center w-full animate-fade-in" style={{ animationDelay: "0.2s" }}>
+                <div className="w-full max-w-xl animate-float">
                   <LaptopMockup />
                 </div>
               </div>
@@ -292,27 +325,31 @@ export default function HomePage() {
         </section>
 
         {/* ── Services ──────────────────────────────────────────────── */}
-        <section id="services" className="py-24 border-t border-[#E5E7EB] bg-[#F8F9FB]">
+        <section id="services" className="py-24 border-t border-white/8 bg-[#0B121C]">
           <div className="max-w-6xl mx-auto px-6 lg:px-8 flex flex-col gap-12">
-            <div className="text-center flex flex-col gap-2">
-              <p className="text-xs font-semibold uppercase tracking-widest text-[#1A73FF]">Services</p>
-              <h2 className="font-heading font-bold text-3xl sm:text-4xl text-[#0A0F1C] tracking-tight">
+            <Reveal className="text-center flex flex-col gap-2">
+              <p className="text-xs font-semibold uppercase tracking-widest text-[#3BAE48]">Services</p>
+              <h2 className="font-heading font-bold text-3xl sm:text-4xl text-white tracking-tight">
                 Everything your site needs.
               </h2>
-            </div>
+            </Reveal>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-              {services.map((s) => {
+              {services.map((s, i) => {
                 const Icon = s.icon;
                 return (
-                  <div key={s.title} className="agency-card rounded-xl p-7 flex flex-col gap-4">
-                    <div className="w-9 h-9 rounded-lg border border-[#E5E7EB] flex items-center justify-center">
-                      <Icon className="w-4.5 h-4.5 text-[#1A73FF]" strokeWidth={1.75} />
+                  <Reveal
+                    key={s.title}
+                    delay={i * 90}
+                    className="group agency-card lift rounded-xl p-7 flex flex-col gap-4"
+                  >
+                    <div className="w-10 h-10 rounded-lg border border-white/8 flex items-center justify-center transition-colors group-hover:border-[#3BAE48]/40 group-hover:bg-[#3BAE48]/14">
+                      <Icon className="w-4.5 h-4.5 text-[#3BAE48]" strokeWidth={1.75} />
                     </div>
                     <div>
-                      <h3 className="font-heading font-semibold text-[#0A0F1C] text-base mb-1.5">{s.title}</h3>
-                      <p className="text-sm text-[#4B5563] leading-relaxed">{s.description}</p>
+                      <h3 className="font-heading font-semibold text-white text-base mb-1.5">{s.title}</h3>
+                      <p className="text-sm text-[#9CA8B8] leading-relaxed">{s.description}</p>
                     </div>
-                  </div>
+                  </Reveal>
                 );
               })}
             </div>
@@ -320,51 +357,52 @@ export default function HomePage() {
         </section>
 
         {/* ── Pricing ───────────────────────────────────────────────── */}
-        <section id="pricing" className="py-24 border-t border-[#E5E7EB] bg-white">
+        <section id="pricing" className="py-24 border-t border-white/8 bg-[#070B14]">
           <div className="max-w-6xl mx-auto px-6 lg:px-8 flex flex-col gap-12">
-            <div className="text-center flex flex-col gap-3">
-              <p className="text-xs font-semibold uppercase tracking-widest text-[#1A73FF]">Our Plans</p>
-              <h2 className="font-heading font-bold text-3xl sm:text-4xl text-[#0A0F1C] tracking-tight">
+            <Reveal className="text-center flex flex-col gap-3">
+              <p className="text-xs font-semibold uppercase tracking-widest text-[#3BAE48]">Our Plans</p>
+              <h2 className="font-heading font-bold text-3xl sm:text-4xl text-white tracking-tight">
                 Simple plans for every stage.
               </h2>
-              <p className="text-[#4B5563] text-base max-w-md mx-auto leading-relaxed">
+              <p className="text-[#9CA8B8] text-base max-w-md mx-auto leading-relaxed">
                 Start with a professional website. Add growth support when you&apos;re ready.
               </p>
-            </div>
+            </Reveal>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
-              {plans.map((plan) => (
-                <div
+              {plans.map((plan, i) => (
+                <Reveal
                   key={plan.name}
+                  delay={i * 90}
                   className={`relative rounded-xl flex flex-col gap-6 p-8 ${
                     plan.highlighted
-                      ? "border-2 border-[#1A73FF] bg-white shadow-[0_4px_24px_rgba(26,115,255,0.12)]"
-                      : "agency-card"
+                      ? "border-2 border-[#3BAE48] bg-[#0F1623] shadow-[0_8px_40px_rgba(59,174,72,0.25)] lift"
+                      : "agency-card lift"
                   }`}
                 >
                   {plan.badge && (
                     <div className="absolute -top-3.5 left-1/2 -translate-x-1/2">
-                      <span className="px-3 py-1 text-xs font-semibold rounded-full bg-[#1A73FF] text-white whitespace-nowrap">
+                      <span className="px-3 py-1 text-xs font-semibold rounded-full bg-[#3BAE48] text-white whitespace-nowrap">
                         {plan.badge}
                       </span>
                     </div>
                   )}
 
                   <div>
-                    <p className="text-xs font-semibold uppercase tracking-widest text-[#1A73FF] mb-3">{plan.name}</p>
+                    <p className="text-xs font-semibold uppercase tracking-widest text-[#3BAE48] mb-3">{plan.name}</p>
                     <div className="flex items-baseline gap-1 mb-0.5">
-                      <span className="font-heading font-bold text-4xl text-[#0A0F1C]">{plan.price}</span>
-                      <span className="text-sm text-[#4B5563]">/mo</span>
+                      <span className="font-heading font-bold text-4xl text-white">{plan.price}</span>
+                      <span className="text-sm text-[#9CA8B8]">/mo</span>
                     </div>
                     <p className="text-xs text-[#9CA3AF] mb-3">{plan.setup}</p>
-                    <p className="text-sm text-[#4B5563] leading-relaxed">{plan.description}</p>
+                    <p className="text-sm text-[#9CA8B8] leading-relaxed">{plan.description}</p>
                   </div>
 
                   <ul className="flex flex-col gap-2.5 flex-1">
                     {plan.features.map((f) => (
                       <li key={f} className="flex items-center gap-2.5">
-                        <Check className="w-4 h-4 text-[#1A73FF] flex-shrink-0" strokeWidth={2.5} />
-                        <span className="text-sm text-[#4B5563]">{f}</span>
+                        <Check className="w-4 h-4 text-[#3BAE48] flex-shrink-0" strokeWidth={2.5} />
+                        <span className="text-sm text-[#9CA8B8]">{f}</span>
                       </li>
                     ))}
                   </ul>
@@ -373,68 +411,69 @@ export default function HomePage() {
                     href={plan.href}
                     className={`w-full py-3 rounded-lg text-sm font-semibold text-center transition-all ${
                       plan.highlighted
-                        ? "bg-[#1A73FF] text-white hover:bg-[#1557CC]"
-                        : "border border-[#E5E7EB] text-[#0A0F1C] hover:bg-[#F8F9FB]"
+                        ? "bg-[#3BAE48] text-white hover:bg-[#2E8C39]"
+                        : "border border-white/8 text-white hover:bg-white/5"
                     }`}
                   >
                     {plan.cta}
                   </Link>
-                </div>
+                </Reveal>
               ))}
             </div>
           </div>
         </section>
 
         {/* ── Comparison ────────────────────────────────────────────── */}
-        <section className="py-20 border-t border-[#E5E7EB] bg-[#F8F9FB]">
+        <section className="py-20 border-t border-white/8 bg-[#0B121C]">
           <div className="max-w-3xl mx-auto px-6 lg:px-8 flex flex-col gap-8">
-            <h2 className="font-heading font-bold text-2xl text-[#0A0F1C] tracking-tight text-center">
+            <h2 className="font-heading font-bold text-2xl text-white tracking-tight text-center">
               What&apos;s included
             </h2>
-            <div className="rounded-xl border border-[#E5E7EB] bg-white overflow-hidden">
+            <Reveal className="rounded-xl border border-white/8 bg-[#0F1623] overflow-hidden">
               {/* Header row */}
-              <div className="grid grid-cols-4 border-b border-[#E5E7EB] bg-[#F8F9FB] px-5 py-3">
+              <div className="grid grid-cols-4 border-b border-white/8 bg-[#0B121C] px-5 py-3">
                 <div />
                 {["Foundation", "Growth", "Partner"].map((col) => (
-                  <div key={col} className="text-center text-xs font-semibold text-[#0A0F1C]">{col}</div>
+                  <div key={col} className="text-center text-xs font-semibold text-white">{col}</div>
                 ))}
               </div>
               {comparisonRows.map((row, i) => (
                 <div
                   key={row.feature}
                   className={`grid grid-cols-4 px-5 py-3.5 items-center ${
-                    i < comparisonRows.length - 1 ? "border-b border-[#E5E7EB]" : ""
+                    i < comparisonRows.length - 1 ? "border-b border-white/8" : ""
                   }`}
                 >
-                  <span className="text-sm text-[#4B5563]">{row.feature}</span>
+                  <span className="text-sm text-[#9CA8B8]">{row.feature}</span>
                   {[row.foundation, row.growth, row.partner].map((has, idx) => (
                     <div key={idx} className="flex justify-center">
                       {has ? (
-                        <Check className="w-4 h-4 text-[#1A73FF]" strokeWidth={2.5} />
+                        <Check className="w-4 h-4 text-[#3BAE48]" strokeWidth={2.5} />
                       ) : (
-                        <Minus className="w-4 h-4 text-[#D1D5DB]" strokeWidth={2} />
+                        <Minus className="w-4 h-4 text-white/20" strokeWidth={2} />
                       )}
                     </div>
                   ))}
                 </div>
               ))}
-            </div>
+            </Reveal>
           </div>
         </section>
 
         {/* ── Final CTA ─────────────────────────────────────────────── */}
-        <section className="py-28 border-t border-[#E5E7EB] bg-white">
-          <div className="max-w-2xl mx-auto px-6 lg:px-8 flex flex-col items-center text-center gap-6">
-            <h2 className="font-heading font-bold text-3xl sm:text-4xl text-[#0A0F1C] tracking-tight">
+        <section className="py-28 border-t border-white/8 bg-[#070B14]">
+          <Reveal className="max-w-2xl mx-auto px-6 lg:px-8 flex flex-col items-center text-center gap-6">
+            <h2 className="font-heading font-bold text-3xl sm:text-4xl text-white tracking-tight">
               Ready to build something great?
             </h2>
-            <p className="text-[#4B5563] text-base leading-relaxed">
+            <p className="text-[#9CA8B8] text-base leading-relaxed">
               Let&apos;s create a website that looks sharp, performs smoothly, and helps your business grow.
             </p>
-            <Link href="/contact" className="btn-primary text-sm px-7 py-3.5 mt-1">
+            <Link href="/contact" className="group btn-primary text-sm px-7 py-3.5 mt-1">
               Schedule a Call
+              <ArrowRight className="btn-arrow w-4 h-4" />
             </Link>
-          </div>
+          </Reveal>
         </section>
 
       </main>
