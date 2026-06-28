@@ -10,20 +10,17 @@
 
 interface MarkProps {
   className?: string;
-  /** Fill color for the front frame's interior (so it sits over the back frame). */
-  bg?: string;
   /** Stroke color of the back frame. */
   backStroke?: string;
 }
 
 export function FramesMark({
   className = "w-9 h-9",
-  bg = "#070B14",
   backStroke = "#FFFFFF",
 }: MarkProps) {
   return (
     <svg viewBox="0 0 64 64" className={className} fill="none" aria-hidden="true">
-      {/* Back frame — white, offset up-left */}
+      {/* Back frame — white, offset up-left. Transparent so it shows through the overlap. */}
       <rect
         x="7"
         y="5"
@@ -33,14 +30,13 @@ export function FramesMark({
         stroke={backStroke}
         strokeWidth="4"
       />
-      {/* Front frame — green, offset down-right, opaque interior */}
+      {/* Front frame — green, offset down-right. Transparent: the frames truly interlock. */}
       <rect
         x="22"
         y="24"
         width="35"
         height="35"
         rx="2"
-        fill={bg}
         stroke="#3BAE48"
         strokeWidth="4.5"
       />
@@ -75,7 +71,6 @@ interface LogoProps {
   markClassName?: string;
   wordmarkClassName?: string;
   textColor?: string;
-  bg?: string;
   backStroke?: string;
 }
 
@@ -85,12 +80,11 @@ export function FramesLogo({
   markClassName = "w-8 h-8",
   wordmarkClassName = "text-[17px]",
   textColor = "#FFFFFF",
-  bg = "#070B14",
   backStroke = "#FFFFFF",
 }: LogoProps) {
   return (
     <span className={`inline-flex items-center gap-2.5 select-none ${className}`}>
-      <FramesMark className={markClassName} bg={bg} backStroke={backStroke} />
+      <FramesMark className={markClassName} backStroke={backStroke} />
       <FramesWordmark className={wordmarkClassName} textColor={textColor} />
     </span>
   );

@@ -232,7 +232,6 @@ export default function HomePage() {
                 <div className="animate-spin-slow drop-shadow-[0_0_60px_rgba(59,174,72,0.25)]">
                   <FramesMark
                     className="w-[30rem] h-[30rem] xl:w-[34rem] xl:h-[34rem]"
-                    bg="transparent"
                     backStroke="rgba(255,255,255,0.85)"
                   />
                 </div>
