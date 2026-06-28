@@ -52,11 +52,8 @@ export default function SiteHeader() {
         </nav>
 
         <div className="hidden md:flex items-center gap-3">
-          <Link href="/login" className="text-sm font-medium text-[#9CA8B8] hover:text-white transition-colors">
-            Client Login
-          </Link>
           <Link href="/contact" className="btn-primary text-sm">
-            Let&apos;s Talk
+            Get a Free Audit
           </Link>
         </div>
 
@@ -84,11 +81,8 @@ export default function SiteHeader() {
             </Link>
           ))}
           <div className="mt-3 pt-3 border-t border-white/8 flex flex-col gap-2">
-            <Link href="/login" onClick={() => setOpen(false)} className="px-3 py-2.5 text-sm font-medium text-[#9CA8B8]">
-              Client Login
-            </Link>
             <Link href="/contact" onClick={() => setOpen(false)} className="btn-primary justify-center">
-              Let&apos;s Talk
+              Get a Free Audit
             </Link>
           </div>
         </div>

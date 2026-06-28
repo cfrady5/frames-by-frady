@@ -1,15 +1,37 @@
+import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, MapPin, Check } from "lucide-react";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import Reveal from "@/components/Reveal";
 
+export const metadata: Metadata = {
+  title: "Services",
+  description:
+    "Website design, managed hosting, local SEO, and Google Business Profile help for local service businesses — contractors, lawncare, home services, restaurants, and professional services.",
+  openGraph: {
+    title: "Services | Frames by Frady",
+    description:
+      "Clean websites, managed hosting, and local growth support for service businesses that rely on calls, quotes, and trust.",
+  },
+};
+
 /* ─── Data ───────────────────────────────────────────────────────────── */
 
 const metrics = [
-  { value: "~3 weeks",  label: "Average time to launch" },
-  { value: "99.9%",     label: "Uptime across client sites" },
+  { value: "~3 weeks",  label: "Typical time to launch" },
+  { value: "99.9%",     label: "Managed hosting uptime target" },
   { value: "Monthly",   label: "Reports delivered to your inbox" },
+];
+
+/* ─── Google Business Profile checklist ──────────────────────────────── */
+const gbpItems = [
+  "Google Business Profile setup or cleanup",
+  "Accurate service categories",
+  "Photos and up-to-date business info",
+  "Review link setup to make feedback easy",
+  "Local keywords for your service area",
+  "Monthly profile updates where applicable",
 ];
 
 const pillars = [
@@ -285,16 +307,16 @@ export default function ServicesPage() {
             <h1 className="font-heading font-bold text-5xl sm:text-[62px] text-white tracking-tight leading-[1.05] animate-fade-up" style={{ animationDelay: "0.08s" }}>
               We build your website. Then we stick around.
             </h1>
-            <p className="text-[#9CA8B8] text-lg leading-relaxed max-w-lg animate-fade-up" style={{ animationDelay: "0.16s" }}>
-              Design, hosting, and ongoing support — all handled. So you can focus on running your business.
+            <p className="text-[#9CA8B8] text-lg leading-relaxed max-w-xl animate-fade-up" style={{ animationDelay: "0.16s" }}>
+              Design, hosting, local SEO, and ongoing support for local service businesses — contractors, lawncare, home services, restaurants, and professional services that rely on calls, quotes, and trust.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 animate-fade-up" style={{ animationDelay: "0.24s" }}>
-              <Link href="/pricing" className="group btn-primary text-sm px-6 py-3">
-                View Pricing
+              <Link href="/contact" className="group btn-primary text-sm px-6 py-3">
+                Get a Free Audit
                 <ArrowRight className="btn-arrow w-4 h-4" />
               </Link>
-              <Link href="/contact" className="btn-ghost text-sm px-6 py-3">
-                Schedule a Call
+              <Link href="/pricing" className="btn-ghost text-sm px-6 py-3">
+                View Pricing
               </Link>
             </div>
           </div>
@@ -361,6 +383,39 @@ export default function ServicesPage() {
           );
         })}
 
+        {/* ── Google Business Profile ─────────────────────────────── */}
+        <section className="py-24 lg:py-32 bg-[#0B121C] border-b border-white/8">
+          <div className="max-w-6xl mx-auto px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+            <Reveal className="flex flex-col gap-6">
+              <div className="inline-flex items-center gap-2 self-start px-3 py-1 rounded-full bg-[#3BAE48]/12 border border-[#3BAE48]/25">
+                <MapPin className="w-3.5 h-3.5 text-[#3BAE48]" strokeWidth={2} />
+                <span className="text-xs font-semibold text-[#3BAE48]">Local visibility</span>
+              </div>
+              <h2 className="font-heading font-bold text-3xl sm:text-4xl text-white tracking-tight leading-[1.1]">
+                Get found where customers are already searching.
+              </h2>
+              <p className="text-[#9CA8B8] text-base leading-relaxed">
+                Most local customers find businesses through Google Maps and local search before they ever visit a website. We make sure your Google Business Profile is set up properly and working for you.
+              </p>
+              <Link href="/contact" className="group btn-primary text-sm px-6 py-3 self-start">
+                Request an Audit
+                <ArrowRight className="btn-arrow w-4 h-4" />
+              </Link>
+            </Reveal>
+
+            <Reveal delay={120} className="agency-card rounded-2xl p-7 sm:p-8 flex flex-col gap-4">
+              {gbpItems.map((item) => (
+                <div key={item} className="flex items-center gap-3">
+                  <div className="w-5 h-5 rounded-full bg-[#3BAE48]/14 flex items-center justify-center flex-shrink-0">
+                    <Check className="w-3 h-3 text-[#3BAE48]" strokeWidth={3} />
+                  </div>
+                  <span className="text-sm text-[#E5E7EB]">{item}</span>
+                </div>
+              ))}
+            </Reveal>
+          </div>
+        </section>
+
         {/* ── What we believe ─────────────────────────────────────── */}
         <section className="py-24 lg:py-32 bg-[#070B14] border-b border-white/8">
           <div className="max-w-6xl mx-auto px-6 lg:px-8 flex flex-col gap-16">
@@ -394,11 +449,11 @@ export default function ServicesPage() {
               Let&apos;s build something you&apos;re proud of.
             </h2>
             <p className="text-[#9CA8B8] text-base leading-relaxed max-w-sm">
-              Tell us about your business. We&apos;ll take it from there.
+              Start with a free website audit. Tell us about your business and we&apos;ll take it from there.
             </p>
             <div className="flex flex-col sm:flex-row gap-3">
               <Link href="/contact" className="group btn-primary text-sm px-6 py-3">
-                Schedule a Call
+                Get a Free Audit
                 <ArrowRight className="btn-arrow w-4 h-4" />
               </Link>
               <Link href="/pricing" className="btn-ghost text-sm px-6 py-3">

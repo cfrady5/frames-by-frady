@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { FramesLogo } from "@/components/SiteHeader";
@@ -5,6 +6,17 @@ import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import SectionHeading from "@/components/SectionHeading";
 import Reveal from "@/components/Reveal";
+
+export const metadata: Metadata = {
+  title: "About",
+  description:
+    "Frames by Frady is a small-business growth studio that builds clean, trustworthy websites for local service businesses — and sticks around to help them grow.",
+  openGraph: {
+    title: "About | Frames by Frady",
+    description:
+      "A small-business growth studio that builds clean, trustworthy websites for local service businesses.",
+  },
+};
 
 const values = [
   { title: "Simple to work with", description: "No unnecessary complexity. Clear communication, honest pricing, and a process that makes sense from start to finish." },
@@ -44,13 +56,13 @@ export default function AboutPage() {
               </div>
               <div className="w-full border-t border-white/8 pt-6 grid grid-cols-2 gap-4 text-center">
                 {[
-                  { value: "50+", label: "Projects Completed" },
-                  { value: "3yr+", label: "Average Retainer" },
-                  { value: "98%", label: "Client Satisfaction" },
-                  { value: "24/7", label: "Support" },
+                  { value: "Yours", label: "You own your site" },
+                  { value: "Mobile-first", label: "Every build" },
+                  { value: "Local SEO", label: "Built in" },
+                  { value: "Ongoing", label: "Support after launch" },
                 ].map(({ value, label }) => (
                   <div key={label}>
-                    <p className="font-heading font-bold text-2xl text-[#3BAE48]">{value}</p>
+                    <p className="font-heading font-bold text-lg text-[#3BAE48]">{value}</p>
                     <p className="text-xs text-[#9CA3AF]">{label}</p>
                   </div>
                 ))}

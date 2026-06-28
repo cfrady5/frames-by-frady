@@ -1,55 +1,67 @@
+import type { Metadata } from "next";
 import Link from "next/link";
-import { Check, Minus } from "lucide-react";
+import { Check, Minus, ShieldCheck } from "lucide-react";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import Reveal from "@/components/Reveal";
 import FaqList from "@/components/FaqList";
 
+export const metadata: Metadata = {
+  title: "Pricing",
+  description:
+    "Simple, transparent pricing for local service businesses. Launch, Local Growth, and Growth Partner plans — clean websites, local SEO, and ongoing support. You own your site.",
+  openGraph: {
+    title: "Pricing | Frames by Frady",
+    description:
+      "Simple, transparent pricing for local service businesses. You own your content and assets — no lock-in.",
+  },
+};
+
 const plans = [
   {
-    name: "Foundation",
+    name: "Launch",
     price: "$49",
     setup: "+ $499 setup",
-    description: "Professional website, hosting, and analytics for businesses that need a stronger online presence.",
+    description: "For businesses that need a clean, credible online presence.",
     features: [
       "Professional website",
       "Hosting included",
       "Mobile optimized",
-      "Contact forms",
+      "Contact and quote forms",
       "Analytics dashboard",
     ],
-    cta: "Get Started",
+    cta: "Start Your Website",
     highlighted: false,
   },
   {
-    name: "Growth",
+    name: "Local Growth",
     price: "$99",
     setup: "+ $999 setup",
     badge: "Most Popular",
-    description: "Everything in Foundation, plus ongoing updates and SEO support to help generate more leads.",
+    description: "For businesses that want a stronger website, basic SEO, and ongoing updates.",
     features: [
-      "Everything in Foundation",
+      "Everything in Launch",
       "Monthly website updates",
-      "SEO optimization",
+      "Local SEO basics",
       "Google Business Profile support",
       "Monthly performance reports",
     ],
-    cta: "Start Growing",
+    cta: "Start Your Website",
     highlighted: true,
   },
   {
     name: "Growth Partner",
     price: "$299",
     setup: "+ $1,999 setup",
-    description: "A dedicated marketing partner for businesses ready to scale their brand and online presence.",
+    description: "For businesses that want ongoing improvements, reporting, content support, and strategy.",
     features: [
-      "Everything in Growth",
+      "Everything in Local Growth",
       "Branding support",
-      "Content creation",
+      "Content support",
       "Email marketing support",
       "Quarterly strategy calls",
     ],
-    cta: "Let's Talk",
+    cta: "Request an Audit",
     highlighted: false,
   },
 ];
@@ -59,12 +71,16 @@ const comparisonRows = [
   { feature: "Hosting and security",    foundation: true,  growth: true,  partner: true },
   { feature: "Analytics dashboard",     foundation: true,  growth: true,  partner: true },
   { feature: "Monthly website updates", foundation: false, growth: true,  partner: true },
-  { feature: "SEO optimization",        foundation: false, growth: true,  partner: true },
+  { feature: "Local SEO basics",        foundation: false, growth: true,  partner: true },
   { feature: "Branding support",        foundation: false, growth: false, partner: true },
-  { feature: "Content creation",        foundation: false, growth: false, partner: true },
+  { feature: "Content support",         foundation: false, growth: false, partner: true },
 ];
 
 const faqs = [
+  {
+    q: "Do I own my website?",
+    a: "Yes. You own all content and assets. If you ever leave, we provide a full export of your site — no traps, no hostage situations.",
+  },
   {
     q: "Is there a setup fee?",
     a: "Yes. Each plan includes a one-time setup fee to cover design, build, and launch. This is paid at the start.",
@@ -78,8 +94,8 @@ const faqs = [
     a: "All plans include managed hosting, SSL, uptime monitoring, and performance maintenance.",
   },
   {
-    q: "Do I own my website?",
-    a: "Yes. You own all content and assets. If you ever leave, we provide a full export of your site.",
+    q: "Do you guarantee rankings or leads?",
+    a: "No — and you should be cautious of anyone who does. We set up strong local SEO foundations and a website built to convert, but we never promise specific rankings or lead numbers.",
   },
 ];
 
@@ -101,13 +117,30 @@ export default function PricingPage() {
               Simple plans for every stage.
             </h1>
             <p className="text-[#9CA8B8] text-base leading-relaxed animate-fade-up" style={{ animationDelay: "0.16s" }}>
-              Start with a professional website. Add growth support when you&apos;re ready.
+              Clean websites and local growth support for service businesses. Start where you are and add more when you&apos;re ready.
             </p>
           </div>
         </section>
 
+        {/* Ownership / no lock-in trust banner */}
+        <section className="bg-[#0B121C] pt-12">
+          <div className="max-w-4xl mx-auto px-6 lg:px-8">
+            <Reveal className="rounded-2xl border border-[#3BAE48]/25 bg-[#3BAE48]/[0.06] p-6 sm:p-7 flex items-start gap-4">
+              <div className="w-10 h-10 rounded-lg bg-[#3BAE48]/14 flex items-center justify-center flex-shrink-0">
+                <ShieldCheck className="w-5 h-5 text-[#3BAE48]" strokeWidth={1.75} />
+              </div>
+              <div className="flex flex-col gap-1.5">
+                <p className="font-heading font-semibold text-white text-base">You own everything. No lock-in.</p>
+                <p className="text-sm text-[#9CA8B8] leading-relaxed">
+                  No traps. No hidden ownership games. You own your content and assets. If you ever leave, we&apos;ll provide a full export of your site.
+                </p>
+              </div>
+            </Reveal>
+          </div>
+        </section>
+
         {/* Plans */}
-        <section className="py-20 bg-[#0B121C]">
+        <section className="pt-12 pb-20 bg-[#0B121C]">
           <div className="max-w-6xl mx-auto px-6 lg:px-8">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
               {plans.map((plan, i) => (
@@ -169,7 +202,7 @@ export default function PricingPage() {
             <Reveal className="rounded-xl border border-white/8 overflow-hidden bg-[#0F1623]">
               <div className="grid grid-cols-4 border-b border-white/8 bg-white/5 px-5 py-3">
                 <div />
-                {["Foundation", "Growth", "Partner"].map((col) => (
+                {["Launch", "Local Growth", "Partner"].map((col) => (
                   <div key={col} className="text-center text-xs font-semibold text-white">{col}</div>
                 ))}
               </div>
@@ -186,7 +219,7 @@ export default function PricingPage() {
                       {has ? (
                         <Check className="w-4 h-4 text-[#3BAE48]" strokeWidth={2.5} />
                       ) : (
-                        <Minus className="w-4 h-4 text-[#D1D5DB]" strokeWidth={2} />
+                        <Minus className="w-4 h-4 text-white/20" strokeWidth={2} />
                       )}
                     </div>
                   ))}
@@ -212,13 +245,13 @@ export default function PricingPage() {
         <section className="py-24 border-t border-white/8 bg-[#070B14]">
           <Reveal className="max-w-xl mx-auto px-6 lg:px-8 flex flex-col items-center text-center gap-5">
             <h2 className="font-heading font-bold text-3xl text-white tracking-tight">
-              Ready to build something great?
+              Not sure which plan fits?
             </h2>
             <p className="text-[#9CA8B8] text-sm leading-relaxed">
-              Let&apos;s create a website that looks sharp, performs smoothly, and helps your business grow.
+              Start with a free website audit. We&apos;ll review your current site and Google presence, then recommend the right starting point — no pressure.
             </p>
             <Link href="/contact" className="btn-primary text-sm px-7 py-3.5 mt-1">
-              Schedule a Call
+              Get a Free Website Audit
             </Link>
           </Reveal>
         </section>

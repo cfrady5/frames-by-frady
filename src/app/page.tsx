@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Check, Minus, Globe, Server, TrendingUp, ArrowRight, Star } from "lucide-react";
+import { Check, Minus, Globe, Server, TrendingUp, ArrowRight } from "lucide-react";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import Reveal from "@/components/Reveal";
@@ -20,52 +20,84 @@ const services = [
   {
     icon: Globe,
     title: "Website Design",
-    description: "Modern websites built to look sharp, load fast, and convert visitors.",
+    description: "Clean, mobile-first websites that make local service businesses look credible and easy to trust.",
   },
   {
     icon: Server,
     title: "Managed Hosting",
-    description: "We handle hosting, security, updates, and performance.",
+    description: "We handle hosting, security, updates, and performance — so your site stays fast and online.",
   },
   {
     icon: TrendingUp,
-    title: "Growth Support",
-    description: "SEO, analytics, and reporting to help your business improve online.",
+    title: "Get Found Locally",
+    description: "Google Business Profile help, local SEO basics, and reporting so customers can actually find you.",
   },
+];
+
+/* ─── Proof / representative work ─────────────────────────────────────── */
+const proofCards = [
+  {
+    title: "Lawncare Landing Page",
+    tag: "Sample concept",
+    description: "A service-area landing page built for lead generation and easy quote requests.",
+  },
+  {
+    title: "Contractor Website",
+    tag: "Sample concept",
+    description: "Project credibility, clear services, and a simple path to request a quote.",
+  },
+  {
+    title: "Event Website",
+    tag: "Representative build",
+    description: "A professional event page structure with a clean registration and details flow.",
+  },
+  {
+    title: "Local Service Business",
+    tag: "Representative build",
+    description: "A trust-focused homepage and contact flow that turns visitors into calls.",
+  },
+];
+
+/* ─── How it works ───────────────────────────────────────────────────── */
+const steps = [
+  { n: "01", title: "Audit", body: "We review your current website, Google presence, and business goals." },
+  { n: "02", title: "Frame", body: "We shape your message, services, layout, and conversion path." },
+  { n: "03", title: "Build", body: "We design and launch a clean, mobile-first website." },
+  { n: "04", title: "Grow", body: "We handle updates, improvements, and ongoing support." },
 ];
 
 /* ─── Pricing ─────────────────────────────────────────────────────────── */
 const plans = [
   {
-    name: "Foundation",
+    name: "Launch",
     price: "$49",
     setup: "+ $499 setup",
-    description: "Professional website, hosting, and analytics for businesses that need a stronger online presence.",
+    description: "For businesses that need a clean, credible online presence.",
     features: [
       "Professional website",
       "Hosting included",
       "Mobile optimized",
-      "Contact forms",
+      "Contact and quote forms",
       "Analytics dashboard",
     ],
-    cta: "Get Started",
+    cta: "Start Your Website",
     href: "/contact",
     highlighted: false,
   },
   {
-    name: "Growth",
+    name: "Local Growth",
     price: "$99",
     setup: "+ $999 setup",
     badge: "Most Popular",
-    description: "Everything in Foundation, plus ongoing updates and SEO support to help generate more leads.",
+    description: "For businesses that want a stronger website, basic SEO, and ongoing updates.",
     features: [
-      "Everything in Foundation",
+      "Everything in Launch",
       "Monthly website updates",
-      "SEO optimization",
+      "Local SEO basics",
       "Google Business Profile support",
       "Monthly performance reports",
     ],
-    cta: "Start Growing",
+    cta: "Start Your Website",
     href: "/contact",
     highlighted: true,
   },
@@ -73,15 +105,15 @@ const plans = [
     name: "Growth Partner",
     price: "$299",
     setup: "+ $1,999 setup",
-    description: "A dedicated marketing partner for businesses ready to scale their brand and online presence.",
+    description: "For businesses that want ongoing improvements, reporting, content support, and strategy.",
     features: [
-      "Everything in Growth",
+      "Everything in Local Growth",
       "Branding support",
-      "Content creation",
+      "Content support",
       "Email marketing support",
       "Quarterly strategy calls",
     ],
-    cta: "Let's Talk",
+    cta: "Request an Audit",
     href: "/contact",
     highlighted: false,
   },
@@ -89,13 +121,13 @@ const plans = [
 
 /* ─── Comparison table ────────────────────────────────────────────────── */
 const comparisonRows = [
-  { feature: "Professional website",    foundation: true,  growth: true,  partner: true },
-  { feature: "Hosting and security",    foundation: true,  growth: true,  partner: true },
-  { feature: "Analytics dashboard",     foundation: true,  growth: true,  partner: true },
-  { feature: "Monthly website updates", foundation: false, growth: true,  partner: true },
-  { feature: "SEO optimization",        foundation: false, growth: true,  partner: true },
-  { feature: "Branding support",        foundation: false, growth: false, partner: true },
-  { feature: "Content creation",        foundation: false, growth: false, partner: true },
+  { feature: "Professional website",      foundation: true,  growth: true,  partner: true },
+  { feature: "Hosting and security",      foundation: true,  growth: true,  partner: true },
+  { feature: "Analytics dashboard",       foundation: true,  growth: true,  partner: true },
+  { feature: "Monthly website updates",   foundation: false, growth: true,  partner: true },
+  { feature: "Local SEO basics",          foundation: false, growth: true,  partner: true },
+  { feature: "Branding support",          foundation: false, growth: false, partner: true },
+  { feature: "Content support",           foundation: false, growth: false, partner: true },
 ];
 
 /* ─── Page ────────────────────────────────────────────────────────────── */
@@ -145,27 +177,22 @@ export default function HomePage() {
                 </div>
 
                 {/* Headline */}
-                <div className="flex flex-col gap-0 animate-fade-up" style={{ lineHeight: 0.96, animationDelay: "0.08s" }}>
+                <div className="flex flex-col animate-fade-up" style={{ animationDelay: "0.08s" }}>
                   <h1
                     className="font-heading font-black text-white tracking-tight"
-                    style={{ fontSize: "clamp(52px, 6.5vw, 96px)", lineHeight: 0.96 }}
+                    style={{ fontSize: "clamp(38px, 4.6vw, 64px)", lineHeight: 1.04 }}
                   >
-                    Built with care.
-                  </h1>
-                  <h1
-                    className="font-heading font-black text-[#3BAE48] tracking-tight"
-                    style={{ fontSize: "clamp(52px, 6.5vw, 96px)", lineHeight: 0.96 }}
-                  >
-                    Designed to grow.
+                    Clean websites for local businesses that{" "}
+                    <span className="text-[#3BAE48]">deserve to be trusted.</span>
                   </h1>
                 </div>
 
                 {/* Sub */}
                 <p
-                  className="text-[#9CA8B8] leading-relaxed max-w-lg animate-fade-up"
+                  className="text-[#9CA8B8] leading-relaxed max-w-xl animate-fade-up"
                   style={{ fontSize: "clamp(15px, 1.2vw, 18px)", animationDelay: "0.16s" }}
                 >
-                  High-quality websites, hosting, and growth solutions for small businesses that deserve a partner they can trust.
+                  Frames by Frady builds simple, professional websites that help service businesses look credible, get found online, and turn visitors into calls or quote requests.
                 </p>
 
                 {/* CTAs */}
@@ -175,7 +202,7 @@ export default function HomePage() {
                     className="group inline-flex items-center justify-center gap-2.5 font-semibold text-white rounded-xl transition-all bg-[#3BAE48] hover:bg-[#2E8C39] hover:-translate-y-0.5 shadow-[0_4px_16px_rgba(59,174,72,0.30)] hover:shadow-[0_10px_28px_rgba(59,174,72,0.38)]"
                     style={{ padding: "14px 28px", fontSize: "15px" }}
                   >
-                    Let&apos;s Talk About Your Project
+                    Get a Free Website Audit
                     <ArrowRight className="btn-arrow w-4 h-4 flex-shrink-0" />
                   </Link>
                   <Link
@@ -183,26 +210,20 @@ export default function HomePage() {
                     className="group inline-flex items-center justify-center gap-2.5 font-semibold text-white rounded-xl transition-all bg-white/[0.03] border border-white/16 hover:border-[#3BAE48]/50 hover:bg-white/[0.06] hover:-translate-y-0.5"
                     style={{ padding: "14px 28px", fontSize: "15px" }}
                   >
-                    View Our Work
+                    View Example Work
                     <ArrowRight className="btn-arrow w-4 h-4 flex-shrink-0" />
                   </Link>
                 </div>
 
-                {/* Trust bar */}
-                <div className="flex flex-wrap items-center gap-x-6 gap-y-3 animate-fade-up" style={{ animationDelay: "0.32s" }}>
-                  <div className="flex items-center gap-1.5">
-                    <div className="flex">
-                      {[0, 1, 2, 3, 4].map((i) => (
-                        <Star key={i} className="w-4 h-4 fill-[#FBBF24] text-[#FBBF24]" />
-                      ))}
+                {/* Trust bar — honest, supportable signals */}
+                <div className="flex flex-wrap items-center gap-x-5 gap-y-2 animate-fade-up" style={{ animationDelay: "0.32s" }}>
+                  {["Free website audit", "Mobile-first & local-SEO ready", "You own everything"].map((item, i) => (
+                    <div key={item} className="flex items-center gap-2">
+                      {i > 0 && <span className="hidden sm:block w-px h-4 bg-white/10 mr-3" />}
+                      <Check className="w-4 h-4 text-[#3BAE48] flex-shrink-0" strokeWidth={2.5} />
+                      <span className="text-sm text-[#9CA8B8]">{item}</span>
                     </div>
-                    <span className="text-sm text-[#9CA8B8]">Loved by local businesses</span>
-                  </div>
-                  <div className="hidden sm:block w-px h-5 bg-white/10" />
-                  <p className="text-sm text-[#9CA8B8]">
-                    <span className="font-semibold text-white">50+</span>{" "}
-                    sites launched &amp; managed
-                  </p>
+                  ))}
                 </div>
               </div>
 
@@ -221,8 +242,86 @@ export default function HomePage() {
           </div>
         </section>
 
+        {/* ── Proof / representative work ───────────────────────────── */}
+        <section className="py-24 border-t border-white/8 bg-[#070B14]">
+          <div className="max-w-6xl mx-auto px-6 lg:px-8 flex flex-col gap-12">
+            <Reveal className="flex flex-col gap-4 max-w-2xl">
+              <p className="text-xs font-semibold uppercase tracking-widest text-[#3BAE48]">Recent &amp; representative work</p>
+              <h2 className="font-heading font-bold text-3xl sm:text-4xl text-white tracking-tight leading-[1.1]">
+                Built for businesses that earn their reputation.
+              </h2>
+              <p className="text-[#9CA8B8] text-base leading-relaxed">
+                From lawncare and contractors to restaurants, events, and professional services, Frames by Frady helps small businesses show up online with the same care they bring to their work.
+              </p>
+            </Reveal>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+              {proofCards.map((card, i) => (
+                <Reveal
+                  key={card.title}
+                  delay={i * 80}
+                  className="group agency-card lift rounded-xl p-6 flex flex-col gap-4"
+                >
+                  {/* Minimal preview mock */}
+                  <div className="h-24 rounded-lg border border-white/8 bg-[#0B121C] p-3 flex flex-col gap-2 overflow-hidden">
+                    <div className="h-1.5 w-2/3 rounded bg-[#3BAE48]/60" />
+                    <div className="h-1.5 w-full rounded bg-white/10" />
+                    <div className="h-1.5 w-4/5 rounded bg-white/10" />
+                    <div className="h-4 w-1/3 rounded bg-[#3BAE48]/25 mt-auto" />
+                  </div>
+                  <span className="self-start px-2 py-0.5 text-[11px] font-medium rounded-md bg-[#3BAE48]/12 text-[#3BAE48] border border-[#3BAE48]/25">
+                    {card.tag}
+                  </span>
+                  <div className="flex flex-col gap-1.5 flex-1">
+                    <h3 className="font-heading font-semibold text-white text-base leading-snug">{card.title}</h3>
+                    <p className="text-sm text-[#9CA8B8] leading-relaxed">{card.description}</p>
+                  </div>
+                  <Link
+                    href="/portfolio"
+                    className="inline-flex items-center gap-1.5 text-sm font-medium text-[#3BAE48] hover:gap-2.5 transition-all"
+                  >
+                    View example
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </Link>
+                </Reveal>
+              ))}
+            </div>
+            <p className="text-xs text-[#9CA3AF]">
+              Sample concepts and representative builds shown. New client work is added as projects launch.
+            </p>
+          </div>
+        </section>
+
+        {/* ── How it works ──────────────────────────────────────────── */}
+        <section className="py-24 border-t border-white/8 bg-[#0B121C]">
+          <div className="max-w-6xl mx-auto px-6 lg:px-8 flex flex-col gap-12">
+            <Reveal className="flex flex-col gap-3 max-w-xl">
+              <p className="text-xs font-semibold uppercase tracking-widest text-[#3BAE48]">How it works</p>
+              <h2 className="font-heading font-bold text-3xl sm:text-4xl text-white tracking-tight leading-[1.1]">
+                A simple, steady process.
+              </h2>
+              <p className="text-[#9CA8B8] text-base leading-relaxed">
+                No pressure, no jargon. Four clear steps from where you are now to a website that works for your business.
+              </p>
+            </Reveal>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+              {steps.map((step, i) => (
+                <Reveal
+                  key={step.n}
+                  delay={i * 90}
+                  className="agency-card rounded-xl p-7 flex flex-col gap-3"
+                >
+                  <span className="font-heading font-bold text-2xl text-[#3BAE48]">{step.n}</span>
+                  <h3 className="font-heading font-semibold text-white text-lg">{step.title}</h3>
+                  <p className="text-sm text-[#9CA8B8] leading-relaxed">{step.body}</p>
+                </Reveal>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* ── Services ──────────────────────────────────────────────── */}
-        <section id="services" className="py-24 border-t border-white/8 bg-[#0B121C]">
+        <section id="services" className="py-24 border-t border-white/8 bg-[#070B14]">
           <div className="max-w-6xl mx-auto px-6 lg:px-8 flex flex-col gap-12">
             <Reveal className="text-center flex flex-col gap-2">
               <p className="text-xs font-semibold uppercase tracking-widest text-[#3BAE48]">Services</p>
@@ -254,7 +353,7 @@ export default function HomePage() {
         </section>
 
         {/* ── Pricing ───────────────────────────────────────────────── */}
-        <section id="pricing" className="py-24 border-t border-white/8 bg-[#070B14]">
+        <section id="pricing" className="py-24 border-t border-white/8 bg-[#0B121C]">
           <div className="max-w-6xl mx-auto px-6 lg:px-8 flex flex-col gap-12">
             <Reveal className="text-center flex flex-col gap-3">
               <p className="text-xs font-semibold uppercase tracking-widest text-[#3BAE48]">Our Plans</p>
@@ -262,7 +361,7 @@ export default function HomePage() {
                 Simple plans for every stage.
               </h2>
               <p className="text-[#9CA8B8] text-base max-w-md mx-auto leading-relaxed">
-                Start with a professional website. Add growth support when you&apos;re ready.
+                Start with a clean website. Add local growth support when you&apos;re ready. You own everything.
               </p>
             </Reveal>
 
@@ -321,7 +420,7 @@ export default function HomePage() {
         </section>
 
         {/* ── Comparison ────────────────────────────────────────────── */}
-        <section className="py-20 border-t border-white/8 bg-[#0B121C]">
+        <section className="py-20 border-t border-white/8 bg-[#070B14]">
           <div className="max-w-3xl mx-auto px-6 lg:px-8 flex flex-col gap-8">
             <h2 className="font-heading font-bold text-2xl text-white tracking-tight text-center">
               What&apos;s included
@@ -330,7 +429,7 @@ export default function HomePage() {
               {/* Header row */}
               <div className="grid grid-cols-4 border-b border-white/8 bg-[#0B121C] px-5 py-3">
                 <div />
-                {["Foundation", "Growth", "Partner"].map((col) => (
+                {["Launch", "Local Growth", "Partner"].map((col) => (
                   <div key={col} className="text-center text-xs font-semibold text-white">{col}</div>
                 ))}
               </div>
@@ -358,18 +457,21 @@ export default function HomePage() {
         </section>
 
         {/* ── Final CTA ─────────────────────────────────────────────── */}
-        <section className="py-28 border-t border-white/8 bg-[#070B14]">
+        <section className="py-28 border-t border-white/8 bg-[#0B121C]">
           <Reveal className="max-w-2xl mx-auto px-6 lg:px-8 flex flex-col items-center text-center gap-6">
             <h2 className="font-heading font-bold text-3xl sm:text-4xl text-white tracking-tight">
-              Ready to build something great?
+              Start simple. We&apos;ll help you figure out the rest.
             </h2>
             <p className="text-[#9CA8B8] text-base leading-relaxed">
-              Let&apos;s create a website that looks sharp, performs smoothly, and helps your business grow.
+              Get a free website audit. We&apos;ll review your current site and Google presence, then show you what to improve — no pressure, no jargon.
             </p>
             <Link href="/contact" className="group btn-primary text-sm px-7 py-3.5 mt-1">
-              Schedule a Call
+              Get a Free Website Audit
               <ArrowRight className="btn-arrow w-4 h-4" />
             </Link>
+            <p className="text-xs text-[#9CA3AF] max-w-md">
+              No traps. No hidden ownership games. You own your content and assets. If you ever leave, we&apos;ll provide a full export of your site.
+            </p>
           </Reveal>
         </section>
 
